@@ -36,12 +36,11 @@ const Index = () => {
       {/* Nav */}
       <nav className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <span className="font-heading text-xl tracking-tight text-foreground">
-            AEO AUDITOR
+          <span className="font-heading text-xl tracking-[0.15em] text-foreground">
+            FLEXXI
           </span>
           <div className="flex items-center gap-4">
-            <span className="hidden text-sm text-muted-foreground sm:block">by Flexxi</span>
-            <button className="btn-glow rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground transition-colors hover:text-foreground">
+            <button className="cta-holo rounded-full px-6 py-2.5 text-sm font-semibold uppercase tracking-[0.15em] text-foreground">
               Book a call
             </button>
           </div>
@@ -55,11 +54,10 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5"
+            className="mx-auto mb-8 inline-flex"
           >
-            <span className="h-2 w-2 rounded-full bg-foreground animate-pulse" />
-            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-              Powered by Claude AI
+            <span className="tag text-xs font-medium uppercase tracking-[0.1em]">
+              AEO Auditor by Flexxi
             </span>
           </motion.div>
 
@@ -69,8 +67,9 @@ const Index = () => {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl"
           >
-            AEO Audit{" "}
-            <em className="text-gradient-holographic not-italic">in seconds.</em>
+            AEO Audit
+            <br />
+            in seconds.
           </motion.h1>
 
           <motion.p
@@ -98,7 +97,7 @@ const Index = () => {
               placeholder="yoursite.com"
               className="flex-1 bg-transparent px-2 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground/50"
             />
-            <button className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]">
+            <button className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]">
               Run audit <ArrowRight className="h-4 w-4" />
             </button>
           </motion.div>
@@ -109,7 +108,7 @@ const Index = () => {
             transition={{ delay: 0.5 }}
             className="mt-4 text-xs text-muted-foreground"
           >
-            Takes 15–30 seconds · <span className="font-medium text-foreground">Claude Sonnet</span>
+            Takes 15–30 seconds
           </motion.p>
 
           {/* Sample domains */}
@@ -123,7 +122,7 @@ const Index = () => {
               <button
                 key={d}
                 onClick={() => setUrl(d)}
-                className="rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+                className="tag cursor-pointer"
               >
                 {d}
               </button>
@@ -146,7 +145,7 @@ const Index = () => {
               custom={0}
               className="font-heading text-4xl tracking-tight text-foreground md:text-5xl"
             >
-              5 signals we <em className="text-gradient-holographic not-italic">analyse</em>
+              5 signals we analyse
             </motion.h2>
             <motion.p
               variants={fadeUp}
@@ -168,7 +167,7 @@ const Index = () => {
                 key={s.title}
                 variants={fadeUp}
                 custom={i}
-                className="group rounded-2xl border border-border bg-card p-6 transition-all border-gradient"
+                className="group rounded-2xl border border-border bg-card p-6 transition-all border-gradient-card"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-secondary">
                   <s.icon className="h-5 w-5 text-foreground" />
@@ -195,7 +194,7 @@ const Index = () => {
               custom={0}
               className="font-heading text-4xl tracking-tight text-foreground md:text-5xl"
             >
-              What your <em className="text-gradient-holographic not-italic">score</em> means
+              What your score means
             </motion.h2>
           </motion.div>
 
@@ -210,7 +209,7 @@ const Index = () => {
                 key={r.range}
                 variants={fadeUp}
                 custom={i}
-                className="flex items-start gap-6 rounded-2xl border border-border bg-background p-6 transition-all border-gradient"
+                className="flex items-start gap-6 rounded-2xl border border-border bg-background p-6 transition-all border-gradient-card"
               >
                 <span className="font-heading text-2xl text-muted-foreground">{r.range}</span>
                 <div>
@@ -233,7 +232,7 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="font-heading text-4xl tracking-tight text-foreground md:text-6xl"
           >
-            Ready to get <em className="text-gradient-holographic not-italic">cited?</em>
+            Ready to get cited?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -251,10 +250,10 @@ const Index = () => {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="mt-8 flex flex-wrap items-center justify-center gap-4"
           >
-            <button className="rounded-full bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]">
-              Run free audit →
+            <button className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.15em] text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]">
+              Run free audit
             </button>
-            <button className="btn-glow rounded-full border border-border px-8 py-3.5 text-sm font-medium text-foreground transition-colors">
+            <button className="cta-holo rounded-full px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.15em] text-foreground">
               Book a call
             </button>
           </motion.div>
@@ -264,8 +263,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-background py-8">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-          <span className="font-heading text-sm text-muted-foreground">
-            AEO Auditor <span className="text-foreground">by Flexxi</span>
+          <span className="font-heading text-sm tracking-[0.1em] text-muted-foreground">
+            AEO AUDITOR <span className="text-foreground">by Flexxi</span>
           </span>
           <span className="text-xs text-muted-foreground">© 2026</span>
         </div>
