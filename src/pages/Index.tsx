@@ -1,22 +1,23 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Search, Shield, BarChart3, FileText, Zap } from "lucide-react";
+import flexxiLogo from "@/assets/flexxi-logo.png";
 
 const sampleDomains = ["flexxi.design", "ueno.co", "work.co", "instrument.com", "raresupremacy.com"];
 
 const scoreRanges = [
-  { range: "0–40", label: "Invisible", desc: "AI engines can't find or classify this site." },
-  { range: "41–60", label: "Partial", desc: "Crawlers allowed, brand visible — but weak structure." },
-  { range: "61–80", label: "Competitive", desc: "Schema present, entity clear. Citable but not dominant." },
-  { range: "81–100", label: "Citation-ready", desc: "Brand shows up when someone asks AI \"who does X?\"" },
+  { range: "0–40", label: "Invisible", desc: "AI engines can't find or classify this site. No schema, likely blocking crawlers." },
+  { range: "41–60", label: "Partial", desc: "Crawlers allowed and brand visible — but no schema and weak structure." },
+  { range: "61–80", label: "Competitive", desc: "Schema present, entity clear, some structured content. Citable but not dominant." },
+  { range: "81–100", label: "Citation-ready", desc: "Everything in place. Brand shows up when someone asks AI \"who does X?\"" },
 ];
 
 const signals = [
-  { icon: Shield, title: "AI Crawlers", desc: "GPTBot · ClaudeBot · Perplexity — are they allowed in?" },
-  { icon: FileText, title: "Schema Markup", desc: "FAQPage · Organization · HowTo — structured data presence." },
-  { icon: Search, title: "Entity Clarity", desc: "Brand + category clarity for AI understanding." },
-  { icon: BarChart3, title: "Content Structure", desc: "FAQ · H2/H3 · comparison — semantic HTML signals." },
-  { icon: Zap, title: "Citability Score", desc: "Overall likelihood of being cited by AI engines." },
+  { num: "01", icon: Shield, title: "AI Crawlers", desc: "GPTBot · ClaudeBot · Perplexity — we check whether your site allows or blocks AI bots from accessing your content." },
+  { num: "02", icon: FileText, title: "Schema Markup", desc: "FAQPage · Organization · HowTo — we scan for structured data that helps AI engines understand what your site is about." },
+  { num: "03", icon: Search, title: "Entity Clarity", desc: "Brand + category clarity — we evaluate how clearly your site communicates who you are and what you do." },
+  { num: "04", icon: BarChart3, title: "Content Structure", desc: "FAQ · H2/H3 · comparison — we analyse your semantic HTML and content hierarchy for AI readability." },
+  { num: "05", icon: Zap, title: "Citability Score", desc: "Overall likelihood of being cited by AI engines when users ask questions related to your industry." },
 ];
 
 const fadeUp = {
@@ -36,29 +37,23 @@ const Index = () => {
       {/* Nav */}
       <nav className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <span className="font-heading text-xl tracking-[0.15em] text-foreground">
-            FLEXXI
-          </span>
-          <div className="flex items-center gap-4">
-            <button className="cta-holo rounded-full px-6 py-2.5 text-sm font-semibold uppercase tracking-[0.15em] text-foreground">
-              Book a call
-            </button>
-          </div>
+          <img src={flexxiLogo} alt="Flexxi" className="h-8 w-auto" />
+          <button className="cta-holo rounded-full px-6 py-2.5 text-sm font-semibold uppercase tracking-[0.15em] text-foreground">
+            Book a call
+          </button>
         </div>
       </nav>
 
       {/* Hero */}
       <section className="relative grid-bg overflow-hidden pt-32 pb-24 md:pt-48 md:pb-36">
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
+        <div className="relative mx-auto max-w-5xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             className="mx-auto mb-8 inline-flex"
           >
-            <span className="tag text-xs font-medium uppercase tracking-[0.1em]">
-              AEO Auditor by Flexxi
-            </span>
+            <span className="tag">AEO Auditor</span>
           </motion.div>
 
           <motion.h1
@@ -131,28 +126,21 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Signals */}
+      {/* Signals — numbered layout like Flexxi services */}
       <section className="border-t border-border bg-background py-24 md:py-32">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-5xl px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-16 text-center"
+            className="mb-16"
           >
-            <motion.h2
-              variants={fadeUp}
-              custom={0}
-              className="font-heading text-4xl tracking-tight text-foreground md:text-5xl"
-            >
-              5 signals we analyse
-            </motion.h2>
             <motion.p
               variants={fadeUp}
-              custom={1}
-              className="mt-4 text-muted-foreground"
+              custom={0}
+              className="text-sm uppercase tracking-[0.15em] text-muted-foreground"
             >
-              Each signal is scored individually, then combined into your total AEO score.
+              What We Analyse
             </motion.p>
           </motion.div>
 
@@ -160,20 +148,22 @@ const Index = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+            className="divide-y divide-border"
           >
             {signals.map((s, i) => (
               <motion.div
                 key={s.title}
                 variants={fadeUp}
                 custom={i}
-                className="group rounded-2xl border border-border bg-card p-6 transition-all border-gradient-card"
+                className="group grid grid-cols-1 gap-4 py-10 first:pt-0 last:pb-0 md:grid-cols-[auto_1fr_1fr] md:gap-8 md:items-start"
               >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-secondary">
-                  <s.icon className="h-5 w-5 text-foreground" />
-                </div>
-                <h3 className="font-heading text-lg text-foreground">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+                <span className="text-xs text-muted-foreground font-medium">{s.num}</span>
+                <h3 className="font-heading text-3xl tracking-tight text-foreground md:text-4xl">
+                  {s.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground md:pt-2">
+                  {s.desc}
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -182,40 +172,49 @@ const Index = () => {
 
       {/* Score ranges */}
       <section className="border-t border-border bg-card py-24 md:py-32">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="mx-auto max-w-5xl px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-16 text-center"
+            className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
           >
             <motion.h2
               variants={fadeUp}
               custom={0}
               className="font-heading text-4xl tracking-tight text-foreground md:text-5xl"
             >
-              What your score means
+              What your
+              <br />
+              score means
             </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              custom={1}
+              className="max-w-sm text-sm text-muted-foreground"
+            >
+              Your total AEO score tells you how visible your brand is to AI engines — and what to fix.
+            </motion.p>
           </motion.div>
 
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="space-y-4"
+            className="grid gap-4 sm:grid-cols-2"
           >
             {scoreRanges.map((r, i) => (
               <motion.div
                 key={r.range}
                 variants={fadeUp}
                 custom={i}
-                className="flex items-start gap-6 rounded-2xl border border-border bg-background p-6 transition-all border-gradient-card"
+                className="rounded-2xl border border-border bg-background p-6 transition-all border-gradient-card"
               >
-                <span className="font-heading text-2xl text-muted-foreground">{r.range}</span>
-                <div>
-                  <h3 className="font-heading text-lg text-foreground">{r.label}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{r.desc}</p>
+                <div className="mb-4 flex items-center gap-3">
+                  <span className="font-heading text-2xl text-foreground">{r.range}</span>
+                  <span className="tag">{r.label}</span>
                 </div>
+                <p className="text-sm leading-relaxed text-muted-foreground">{r.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -263,10 +262,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-background py-8">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-          <span className="font-heading text-sm tracking-[0.1em] text-muted-foreground">
-            AEO AUDITOR <span className="text-foreground">by Flexxi</span>
-          </span>
-          <span className="text-xs text-muted-foreground">© 2026</span>
+          <img src={flexxiLogo} alt="Flexxi" className="h-6 w-auto opacity-60" />
+          <span className="text-xs text-muted-foreground">© 2026 Flexxi</span>
         </div>
       </footer>
     </div>
