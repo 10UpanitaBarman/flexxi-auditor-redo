@@ -158,6 +158,7 @@
 
   .input-holo {
     position: relative;
+    overflow: hidden;
   }
 
   .input-holo::before {
@@ -165,9 +166,9 @@
     position: absolute;
     inset: -1px;
     border-radius: 9999px;
-    padding: 1px;
-    background: conic-gradient(
-      from 0deg,
+    padding: 1.5px;
+    background: linear-gradient(
+      135deg,
       hsl(300 70% 65% / 0.6),
       hsl(230 80% 65% / 0.6),
       hsl(180 70% 60% / 0.6),
@@ -175,17 +176,14 @@
       hsl(60 70% 65% / 0.6),
       hsl(300 70% 65% / 0.6)
     );
+    background-size: 300% 300%;
+    animation: holo-shift 4s ease-in-out infinite;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.4s;
-    z-index: 0;
-    animation: holo-spin 4s linear infinite;
-  }
-
-  .input-holo:focus-within::before {
-    opacity: 1;
+    pointer-events: none;
   }
 
   .input-holo:hover::before {
@@ -199,29 +197,23 @@
   .input-holo::after {
     content: '';
     position: absolute;
-    inset: -8px;
+    inset: 0;
     border-radius: 9999px;
-    background: conic-gradient(
-      from 0deg,
-      hsl(300 70% 65% / 0.08),
-      hsl(230 80% 65% / 0.08),
-      hsl(180 70% 60% / 0.08),
-      hsl(120 60% 60% / 0.08),
-      hsl(60 70% 65% / 0.08),
-      hsl(300 70% 65% / 0.08)
-    );
-    filter: blur(16px);
     opacity: 0;
     transition: opacity 0.4s;
-    z-index: -1;
-    animation: holo-spin 4s linear infinite;
+    pointer-events: none;
+    box-shadow:
+      0 0 15px 2px hsl(300 70% 65% / 0.1),
+      0 0 30px 4px hsl(200 80% 65% / 0.08),
+      0 0 50px 8px hsl(160 70% 60% / 0.05);
   }
 
   .input-holo:focus-within::after {
     opacity: 1;
   }
 
-  @keyframes holo-spin {
-    to { rotate: 360deg; }
+  @keyframes holo-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 }
