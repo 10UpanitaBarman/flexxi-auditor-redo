@@ -20,33 +20,104 @@ serve(async (req) => {
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
-    const prompt = `You are an AEO (Answer Engine Optimisation) auditor for design and branding agencies.
+    const prompt = `You are an expert AEO (Answer Engine Optimisation) and digital presence auditor. You produce detailed, narrative-style audit reports similar to professional consulting deliverables.
 
 TASK: Audit the website at this domain: ${domain}
 
-Score each signal 0-20. Be strict. Partial implementation scores half.
+Produce a comprehensive audit with the following JSON structure. Be specific, detailed, and reference real observations. Write as if presenting to a C-level executive.
 
-SIGNALS:
-- schema_score: FAQPage, Organization, or HowTo schema present (0-20)
-- crawler_score: GPTBot, PerplexityBot, ClaudeBot not blocked in robots.txt (0-20)
-- entity_score: brand name + category clearly stated in first 200 words (0-20)
-- structure_score: FAQ sections, clear H2/H3 headings, comparison content (0-20)
-- nap_score: name, location, and category consistent across page (0-20)
+SCORING (0-20 each, be strict):
+- schema_score: FAQPage, Organization, HowTo, or other schema markup present
+- crawler_score: GPTBot, PerplexityBot, ClaudeBot access in robots.txt
+- entity_score: brand name + category clarity in first 200 words
+- structure_score: FAQ sections, H2/H3 hierarchy, comparison content
+- nap_score: name, location, category consistency
 
-ALSO RETURN:
-- niche: industry/service category, 5 words max
-- competitor: one well-known competitor AI engines cite more often
-- competitor_reason: one sentence why, max 20 words
-- crawler_gptbot: "pass", "fail", or "warn"
-- crawler_claudebot: "pass", "fail", or "warn"
-- crawler_perplexity: "pass", "fail", or "warn"
-- crawler_google: "pass", "fail", or "warn"
-- robots_present: "pass", "fail", or "warn"
-- flags: exactly 3 specific AEO failures found, each under 12 words
-- recommendations: exactly 6 objects with:
-    h: recommendation title (max 6 words)
-    p: description (max 20 words)
-    tag: "quick" | "med" | "long"
+RETURN THIS EXACT JSON STRUCTURE:
+
+{
+  "headline": "One powerful sentence summarizing the overall finding — direct and impactful, like: 'Your product is excellent. Your digital presence is not.'",
+  
+  "key_findings": [
+    "Finding 1: A detailed paragraph (3-5 sentences) about a specific critical issue found. Be concrete — mention exact pages, elements, or configurations observed. Explain why it matters in business terms.",
+    "Finding 2: ...",
+    "Finding 3: ...",
+    "Finding 4: ...",
+    "Finding 5: ..."
+  ],
+  
+  "stats": [
+    { "label": "Short stat label", "value": "Striking value or word" },
+    { "label": "Another stat", "value": "Value" },
+    { "label": "Another stat", "value": "Value" },
+    { "label": "Another stat", "value": "Value" }
+  ],
+  
+  "schema_score": 0,
+  "crawler_score": 0,
+  "entity_score": 0,
+  "structure_score": 0,
+  "nap_score": 0,
+  "niche": "Industry category, 5 words max",
+  
+  "crawler_gptbot": "pass|fail|warn",
+  "crawler_claudebot": "pass|fail|warn",
+  "crawler_perplexity": "pass|fail|warn",
+  "crawler_google": "pass|fail|warn",
+  "robots_present": "pass|fail|warn",
+  
+  "detailed_findings": [
+    {
+      "severity": "Critical|High|Medium",
+      "title": "Short finding title (e.g. 'Near-Invisible to Search Engines')",
+      "summary": "2-3 paragraphs explaining the finding in detail. Be specific about what was observed, what the technical issue is, and why it matters. Include concrete examples from the actual site. Write like a senior consultant explaining to a business owner.",
+      "evidence": [
+        "Specific data point or observation 1",
+        "Specific data point or observation 2",
+        "Specific data point or observation 3"
+      ],
+      "impact": "One paragraph explaining the business impact — lost revenue, missed opportunities, competitive disadvantage."
+    }
+  ],
+  
+  "tech_stack": [
+    {
+      "layer": "Website Platform",
+      "technology": "Name of technology detected",
+      "assessment": "Good|Risk|Warning|Unknown",
+      "notes": "Brief explanation of what was observed"
+    }
+  ],
+  
+  "competitive": [
+    {
+      "capability": "What's being compared (e.g. 'Schema Markup')",
+      "client_status": "Current state for this domain",
+      "best_in_class": "What top competitors do",
+      "gap": "Critical|High|Medium|Opportunity|Quick Win"
+    }
+  ],
+  
+  "recommendations": [
+    {
+      "title": "Clear action title (e.g. 'Add Organization schema markup')",
+      "severity": "Critical|High|Medium",
+      "timeframe": "Specific timeframe (e.g. '1 hour', '1-2 days', '2-4 weeks')",
+      "description": "2-3 sentences explaining what to do and why it matters. Be actionable and specific."
+    }
+  ]
+}
+
+REQUIREMENTS:
+- Return exactly 5 key_findings, each a detailed paragraph
+- Return exactly 4 stats with striking metrics
+- Return 4-6 detailed_findings with full narratives
+- Return 4-6 tech_stack rows
+- Return 6-8 competitive positioning rows
+- Return 8-10 recommendations ordered by priority
+- All text should be professional, specific, and reference real observations about the site
+- Do NOT use generic filler text — every finding must be specific to this domain
+- Write impact statements in business terms (lost clients, missed revenue, competitive disadvantage)
 
 Return ONLY valid JSON. No markdown. No preamble. Start with { and end with }.`;
 
@@ -58,6 +129,7 @@ Return ONLY valid JSON. No markdown. No preamble. Start with { and end with }.`;
       },
       body: JSON.stringify({
         model: "google/gemini-2.5-flash",
+        max_tokens: 4096,
         messages: [{ role: "user", content: prompt }],
       }),
     });
