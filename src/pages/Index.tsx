@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+
+interface IndexProps {
+  onSubmit?: (domain: string) => void;
+}
 import { ArrowRight, Search, Shield, BarChart3, FileText, Zap } from "lucide-react";
 import flexxiLogo from "@/assets/flexxi-logo.png";
 
@@ -29,7 +33,7 @@ const fadeUp = {
   }),
 };
 
-const Index = () => {
+const Index = ({ onSubmit }: IndexProps = {}) => {
   const [url, setUrl] = useState("");
 
   return (
@@ -92,7 +96,10 @@ const Index = () => {
               placeholder="yoursite.com"
               className="flex-1 bg-transparent px-2 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground/50"
             />
-            <button className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]">
+            <button
+              onClick={() => url && onSubmit?.(url)}
+              className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
+            >
               Run audit <ArrowRight className="h-4 w-4" />
             </button>
           </motion.div>
@@ -249,7 +256,10 @@ const Index = () => {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="mt-8 flex flex-wrap items-center justify-center gap-4"
           >
-            <button className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.15em] text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.15em] text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
+            >
               Run free audit
             </button>
             <button className="cta-holo rounded-full px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.15em] text-foreground">
