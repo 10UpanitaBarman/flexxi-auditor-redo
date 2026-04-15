@@ -5,10 +5,10 @@ import { ArrowRight, Search, Shield, BarChart3, FileText, Zap } from "lucide-rea
 const sampleDomains = ["flexxi.design", "ueno.co", "work.co", "instrument.com", "raresupremacy.com"];
 
 const scoreRanges = [
-  { range: "0–40", label: "Invisible", color: "destructive", desc: "AI engines can't find or classify this site." },
-  { range: "41–60", label: "Partial", color: "muted-foreground", desc: "Crawlers allowed, brand visible — but weak structure." },
-  { range: "61–80", label: "Competitive", color: "foreground", desc: "Schema present, entity clear. Citable but not dominant." },
-  { range: "81–100", label: "Citation-ready", color: "primary", desc: "Brand shows up when someone asks AI \"who does X?\"" },
+  { range: "0–40", label: "Invisible", desc: "AI engines can't find or classify this site." },
+  { range: "41–60", label: "Partial", desc: "Crawlers allowed, brand visible — but weak structure." },
+  { range: "61–80", label: "Competitive", desc: "Schema present, entity clear. Citable but not dominant." },
+  { range: "81–100", label: "Citation-ready", desc: "Brand shows up when someone asks AI \"who does X?\"" },
 ];
 
 const signals = [
@@ -37,11 +37,11 @@ const Index = () => {
       <nav className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <span className="font-heading text-xl tracking-tight text-foreground">
-            AEO <span className="text-gradient-primary">Auditor</span>
+            AEO AUDITOR
           </span>
           <div className="flex items-center gap-4">
             <span className="hidden text-sm text-muted-foreground sm:block">by Flexxi</span>
-            <button className="rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary">
+            <button className="btn-glow rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground transition-colors hover:text-foreground">
               Book a call
             </button>
           </div>
@@ -50,11 +50,6 @@ const Index = () => {
 
       {/* Hero */}
       <section className="relative grid-bg overflow-hidden pt-32 pb-24 md:pt-48 md:pb-36">
-        {/* Glow orb */}
-        <div className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2">
-          <div className="h-[500px] w-[500px] rounded-full bg-primary/5 blur-[150px]" />
-        </div>
-
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -62,7 +57,7 @@ const Index = () => {
             transition={{ duration: 0.5 }}
             className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5"
           >
-            <span className="h-2 w-2 animate-pulse-glow rounded-full bg-primary" />
+            <span className="h-2 w-2 rounded-full bg-foreground animate-pulse" />
             <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
               Powered by Claude AI
             </span>
@@ -75,7 +70,7 @@ const Index = () => {
             className="font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl"
           >
             AEO Audit{" "}
-            <span className="italic text-gradient-primary">in seconds.</span>
+            <em className="text-gradient-holographic not-italic">in seconds.</em>
           </motion.h1>
 
           <motion.p
@@ -93,7 +88,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6 }}
-            className="mx-auto mt-10 flex max-w-xl items-center gap-0 rounded-full border border-border bg-card p-1.5 transition-all focus-within:border-primary/50 focus-within:glow-primary"
+            className="mx-auto mt-10 flex max-w-xl items-center gap-0 rounded-full border border-border bg-card p-1.5 transition-all focus-within:border-foreground/30"
           >
             <span className="pl-4 text-sm text-muted-foreground">https://</span>
             <input
@@ -128,7 +123,7 @@ const Index = () => {
               <button
                 key={d}
                 onClick={() => setUrl(d)}
-                className="rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+                className="rounded-full border border-border px-3.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
               >
                 {d}
               </button>
@@ -151,7 +146,7 @@ const Index = () => {
               custom={0}
               className="font-heading text-4xl tracking-tight text-foreground md:text-5xl"
             >
-              5 signals we <span className="text-gradient-primary">analyse</span>
+              5 signals we <em className="text-gradient-holographic not-italic">analyse</em>
             </motion.h2>
             <motion.p
               variants={fadeUp}
@@ -173,10 +168,10 @@ const Index = () => {
                 key={s.title}
                 variants={fadeUp}
                 custom={i}
-                className="group rounded-2xl border border-border bg-card p-6 transition-all border-glow"
+                className="group rounded-2xl border border-border bg-card p-6 transition-all border-gradient"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-secondary">
-                  <s.icon className="h-5 w-5 text-primary" />
+                  <s.icon className="h-5 w-5 text-foreground" />
                 </div>
                 <h3 className="font-heading text-lg text-foreground">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
@@ -200,7 +195,7 @@ const Index = () => {
               custom={0}
               className="font-heading text-4xl tracking-tight text-foreground md:text-5xl"
             >
-              What your <span className="text-gradient-primary">score</span> means
+              What your <em className="text-gradient-holographic not-italic">score</em> means
             </motion.h2>
           </motion.div>
 
@@ -215,7 +210,7 @@ const Index = () => {
                 key={r.range}
                 variants={fadeUp}
                 custom={i}
-                className="flex items-start gap-6 rounded-2xl border border-border bg-background p-6 transition-all border-glow"
+                className="flex items-start gap-6 rounded-2xl border border-border bg-background p-6 transition-all border-gradient"
               >
                 <span className="font-heading text-2xl text-muted-foreground">{r.range}</span>
                 <div>
@@ -230,9 +225,6 @@ const Index = () => {
 
       {/* CTA */}
       <section className="relative grid-bg border-t border-border py-24 md:py-32">
-        <div className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2">
-          <div className="h-[400px] w-[600px] rounded-full bg-primary/5 blur-[150px]" />
-        </div>
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -241,7 +233,7 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="font-heading text-4xl tracking-tight text-foreground md:text-6xl"
           >
-            Ready to get <span className="italic text-gradient-primary">cited?</span>
+            Ready to get <em className="text-gradient-holographic not-italic">cited?</em>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -262,7 +254,7 @@ const Index = () => {
             <button className="rounded-full bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]">
               Run free audit →
             </button>
-            <button className="rounded-full border border-border px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary">
+            <button className="btn-glow rounded-full border border-border px-8 py-3.5 text-sm font-medium text-foreground transition-colors">
               Book a call
             </button>
           </motion.div>
