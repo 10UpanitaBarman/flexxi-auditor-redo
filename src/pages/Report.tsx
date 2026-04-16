@@ -100,6 +100,18 @@ const Report = ({ data, onReset }: ReportProps) => {
         <div className="h-full bg-foreground transition-[width] duration-100" style={{ width: `${scrollPercent}%` }} />
       </div>
 
+      {/* Back button */}
+      <button
+        onClick={onReset}
+        className="fixed top-6 left-6 z-40 inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-2 font-body text-xs font-bold uppercase tracking-[0.15em] text-foreground backdrop-blur-md transition-colors hover:bg-foreground hover:text-background"
+        aria-label="Back to home"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back
+      </button>
+
       {/* ══════════════ COVER ══════════════ */}
       <section className="relative grid-bg overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="pointer-events-none absolute top-0 right-0 h-[500px] w-[500px] bg-[radial-gradient(circle_at_center,hsl(0_0%_20%/0.15),transparent_70%)]" />
