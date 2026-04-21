@@ -178,32 +178,22 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       </section>
 
       {/* Score ranges */}
-      <section className="border-t border-border bg-card py-24 md:py-32">
-        <div className="mx-auto max-w-5xl px-6">
+      <section className="border-t border-border bg-background py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+            className="mb-12 border-b border-border pb-4"
           >
             <motion.h2
               variants={fadeUp}
               custom={0}
-              className="font-heading text-4xl tracking-tight text-foreground md:text-5xl"
+              className="font-heading text-base text-foreground md:text-lg"
             >
-              What your
-              <br />
-              score means
+              What your score means
             </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              custom={1}
-              className="max-w-sm text-sm text-muted-foreground"
-            >
-              Your total AEO score tells you how visible your brand is to AI engines — and what to fix.
-            </motion.p>
           </motion.div>
-
           <motion.div
             initial="hidden"
             whileInView="visible"
