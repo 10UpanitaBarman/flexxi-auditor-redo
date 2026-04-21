@@ -41,7 +41,9 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       {/* Nav */}
       <nav className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <img src={flexxiLogo} alt="Flexxi" className="h-8 w-auto" />
+          <a href="https://www.flexxi.studio/who-we-are" target="_blank" rel="noopener noreferrer" aria-label="Flexxi">
+            <img src={flexxiLogo} alt="Flexxi" className="h-8 w-auto" />
+          </a>
           <a
             href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
             target="_blank"
@@ -283,7 +285,9 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       {/* Footer */}
       <footer className="border-t border-border bg-background py-8">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-          <img src={flexxiLogo} alt="Flexxi" className="h-6 w-auto opacity-60" />
+          <a href="https://www.flexxi.studio/who-we-are" target="_blank" rel="noopener noreferrer" aria-label="Flexxi">
+            <img src={flexxiLogo} alt="Flexxi" className="h-6 w-auto opacity-60 transition-opacity hover:opacity-100" />
+          </a>
           <span className="text-xs text-muted-foreground">© 2026 Flexxi</span>
         </div>
       </footer>
