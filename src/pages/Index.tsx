@@ -49,7 +49,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       </nav>
 
       {/* Hero */}
-      <section className="relative grid-bg overflow-hidden pt-32 pb-24 md:pt-48 md:pb-36">
+      <section className="relative overflow-hidden pt-32 pb-24 md:pt-48 md:pb-36">
         <div className="relative mx-auto max-w-5xl px-6 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -229,7 +229,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       </section>
 
       {/* CTA */}
-      <section className="relative grid-bg border-t border-border py-24 md:py-32">
+      <section className="relative border-t border-border py-24 md:py-32">
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
