@@ -140,24 +140,15 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-16 flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-end md:justify-between"
+            className="mb-12 border-b border-border pb-4"
           >
             <motion.h2
               variants={fadeUp}
               custom={0}
-              className="font-heading text-4xl tracking-tight text-foreground md:text-5xl"
+              className="font-heading text-base text-foreground md:text-lg"
             >
-              What we
-              <br />
-              analyse
+              What we analyse
             </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              custom={1}
-              className="max-w-sm text-sm text-muted-foreground"
-            >
-              Five signals that determine whether AI engines can find, understand, and cite your brand.
-            </motion.p>
           </motion.div>
 
           <motion.div
