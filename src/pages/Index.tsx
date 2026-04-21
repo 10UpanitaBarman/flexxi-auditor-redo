@@ -162,13 +162,13 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
                 key={s.title}
                 variants={fadeUp}
                 custom={i}
-                className="group grid grid-cols-[auto_1fr] items-start gap-4 rounded-lg px-2 py-6 transition-colors hover:bg-card md:grid-cols-[auto_1fr_minmax(0,22rem)] md:gap-8 md:py-8"
+                className="group grid grid-cols-[auto_1fr_minmax(0,12rem)] items-start gap-3 rounded-lg px-2 py-6 transition-colors hover:bg-card md:grid-cols-[auto_1fr_minmax(0,22rem)] md:gap-8 md:py-8"
               >
-                <span className="pt-3 text-xs text-muted-foreground md:pt-5">{s.num}</span>
-                <h3 className="font-heading text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
+                <span className="pt-2 text-xs text-muted-foreground md:pt-5">{s.num}</span>
+                <h3 className="font-heading text-3xl leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
                   {s.title}
                 </h3>
-                <p className="col-start-2 max-w-sm text-sm leading-relaxed text-muted-foreground md:col-start-3 md:pt-3">
+                <p className="pt-2 text-xs leading-relaxed text-muted-foreground md:pt-3 md:text-sm">
                   {s.desc}
                 </p>
               </motion.div>
