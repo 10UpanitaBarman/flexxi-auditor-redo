@@ -133,19 +133,19 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
         </div>
       </section>
 
-      {/* Signals — numbered layout like Flexxi services */}
+      {/* Signals — Flexxi-style hover-reveal layout */}
       <section className="border-t border-border bg-background py-24 md:py-32">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="mb-16"
+            className="mb-8 border-b border-border pb-6"
           >
             <motion.p
               variants={fadeUp}
               custom={0}
-              className="text-sm uppercase tracking-[0.15em] text-muted-foreground"
+              className="text-sm font-semibold uppercase tracking-[0.05em] text-foreground"
             >
               What We Analyse
             </motion.p>
@@ -155,20 +155,20 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="divide-y divide-border"
+            className="flex flex-col"
           >
             {signals.map((s, i) => (
               <motion.div
                 key={s.title}
                 variants={fadeUp}
                 custom={i}
-                className="group grid grid-cols-1 gap-4 py-10 first:pt-0 last:pb-0 md:grid-cols-[auto_1fr_1fr] md:gap-8 md:items-start"
+                className="group grid grid-cols-[auto_1fr] items-start gap-4 rounded-lg px-2 py-6 transition-colors hover:bg-card md:grid-cols-[auto_1fr_minmax(0,22rem)] md:gap-8 md:py-8"
               >
-                <span className="text-xs text-muted-foreground font-medium">{s.num}</span>
-                <h3 className="font-heading text-3xl tracking-tight text-foreground md:text-4xl">
+                <span className="pt-3 text-xs text-muted-foreground md:pt-5">{s.num}</span>
+                <h3 className="font-heading text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
                   {s.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground md:pt-2">
+                <p className="col-start-2 max-w-sm text-sm leading-relaxed text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:col-start-3 md:pt-3">
                   {s.desc}
                 </p>
               </motion.div>
