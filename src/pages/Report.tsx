@@ -150,7 +150,7 @@ const Report = ({ data, onReset }: ReportProps) => {
       </section>
 
       {/* ══════════════ EXECUTIVE SUMMARY ══════════════ */}
-      <section className="border-t border-border bg-card py-20 md:py-28">
+      <section className="border-t border-border bg-background py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}>
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
@@ -256,7 +256,7 @@ const Report = ({ data, onReset }: ReportProps) => {
       </section>
 
       {/* ══════════════ SCORE OVERVIEW ══════════════ */}
-      <section className="border-t border-border bg-card py-20 md:py-28">
+      <section className="border-t border-border bg-background py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="mb-12">
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
@@ -377,7 +377,7 @@ const Report = ({ data, onReset }: ReportProps) => {
       </section>
 
       {/* ══════════════ COMPETITIVE POSITIONING ══════════════ */}
-      <section className="border-t border-border bg-card py-20 md:py-28">
+      <section className="border-t border-border bg-background py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="mb-12">
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
