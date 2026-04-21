@@ -142,13 +142,13 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             viewport={{ once: true, margin: "-100px" }}
             className="mb-8 border-b border-border pb-6"
           >
-            <motion.p
+            <motion.h2
               variants={fadeUp}
               custom={0}
-              className="text-sm font-semibold uppercase tracking-[0.05em] text-foreground"
+              className="font-heading text-base text-foreground"
             >
-              What We Analyse
-            </motion.p>
+              What we analyse
+            </motion.h2>
           </motion.div>
 
           <motion.div
