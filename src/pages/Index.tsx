@@ -145,7 +145,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             <motion.h2
               variants={fadeUp}
               custom={0}
-              className="font-heading text-base text-foreground md:text-lg"
+              className="font-heading text-xl text-foreground md:text-2xl"
             >
               What we analyse
             </motion.h2>
@@ -189,7 +189,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             <motion.h2
               variants={fadeUp}
               custom={0}
-              className="font-heading text-base text-foreground md:text-lg"
+              className="font-heading text-xl text-foreground md:text-2xl"
             >
               What your score means
             </motion.h2>
