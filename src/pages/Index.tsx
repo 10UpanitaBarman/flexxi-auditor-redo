@@ -42,9 +42,14 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       <nav className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <img src={flexxiLogo} alt="Flexxi" className="h-8 w-auto" />
-          <button className="cta-holo flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground">
+          <a
+            href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-holo inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground"
+          >
             Book A Call <ArrowRight className="h-4 w-4" />
-          </button>
+          </a>
         </div>
       </nav>
 
@@ -250,9 +255,14 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="mt-12 flex justify-center"
           >
-            <button className="cta-holo rounded-full px-12 py-4 text-base font-semibold tracking-wide text-foreground">
+            <a
+              href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-holo inline-flex items-center gap-2 rounded-full px-12 py-4 text-base font-semibold tracking-wide text-foreground"
+            >
               Book an intro call
-            </button>
+            </a>
           </motion.div>
 
           <motion.p
