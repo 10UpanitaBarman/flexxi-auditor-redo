@@ -113,7 +113,7 @@ const Report = ({ data, onReset }: ReportProps) => {
       </button>
 
       {/* ══════════════ COVER ══════════════ */}
-      <section className="relative grid-bg overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
+      <section className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="pointer-events-none absolute top-0 right-0 h-[500px] w-[500px] bg-[radial-gradient(circle_at_center,hsl(0_0%_20%/0.15),transparent_70%)]" />
         <div className="relative mx-auto max-w-5xl px-6">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
@@ -462,7 +462,7 @@ const Report = ({ data, onReset }: ReportProps) => {
       </section>
 
       {/* ══════════════ CTA ══════════════ */}
-      <section className="relative grid-bg border-t border-border py-20 md:py-28">
+      <section className="relative border-t border-border py-20 md:py-28">
         <div className="relative mx-auto max-w-3xl px-6 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
