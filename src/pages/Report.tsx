@@ -114,7 +114,6 @@ const Report = ({ data, onReset }: ReportProps) => {
 
       {/* ══════════════ COVER ══════════════ */}
       <section className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
-        <div className="pointer-events-none absolute top-0 right-0 h-[500px] w-[500px] bg-[radial-gradient(circle_at_center,hsl(0_0%_20%/0.15),transparent_70%)]" />
         <div className="relative mx-auto max-w-5xl px-6">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
             AEO Audit Report — Prepared by Flexxi
@@ -151,7 +150,7 @@ const Report = ({ data, onReset }: ReportProps) => {
       </section>
 
       {/* ══════════════ EXECUTIVE SUMMARY ══════════════ */}
-      <section className="border-t border-border bg-card py-20 md:py-28">
+      <section className="border-t border-border bg-background py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}>
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
@@ -257,7 +256,7 @@ const Report = ({ data, onReset }: ReportProps) => {
       </section>
 
       {/* ══════════════ SCORE OVERVIEW ══════════════ */}
-      <section className="border-t border-border bg-card py-20 md:py-28">
+      <section className="border-t border-border bg-background py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="mb-12">
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
@@ -378,7 +377,7 @@ const Report = ({ data, onReset }: ReportProps) => {
       </section>
 
       {/* ══════════════ COMPETITIVE POSITIONING ══════════════ */}
-      <section className="border-t border-border bg-card py-20 md:py-28">
+      <section className="border-t border-border bg-background py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="mb-12">
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
