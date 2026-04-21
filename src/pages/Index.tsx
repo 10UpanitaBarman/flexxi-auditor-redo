@@ -168,7 +168,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
                 <h3 className="font-heading text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
                   {s.title}
                 </h3>
-                <p className="col-start-2 max-w-sm text-sm leading-relaxed text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:col-start-3 md:pt-3">
+                <p className="col-start-2 max-w-sm text-sm leading-relaxed text-muted-foreground md:col-start-3 md:pt-3">
                   {s.desc}
                 </p>
               </motion.div>
