@@ -231,43 +231,49 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       </section>
 
       {/* CTA */}
-      <section className="relative border-t border-border py-24 md:py-32">
-        <div className="relative mx-auto max-w-3xl px-6 text-center">
+      <section className="relative border-t border-border py-32 md:py-48">
+        <div className="relative mx-auto max-w-6xl px-6 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-heading text-4xl tracking-tight text-foreground md:text-6xl"
+            className="font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl"
           >
-            Ready to get cited?
+            Ready to see how
+            <br />
+            visible your brand
+            <br />
+            is to AI?
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="mt-4 text-muted-foreground"
-          >
-            Run a free audit now, or book a call to discuss your AEO strategy.
-          </motion.p>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-4"
+            className="mt-12 flex justify-center"
           >
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.15em] text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              className="cta-holo rounded-full px-12 py-4 text-base font-semibold uppercase tracking-[0.15em] text-foreground"
             >
               Run free audit
             </button>
-            <button className="cta-holo rounded-full px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.15em] text-foreground">
-              Book a call
-            </button>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="mt-10 text-sm text-muted-foreground"
+          >
+            Or book a call to discuss your AEO strategy 😉{" "}
+            <a href="mailto:hello@flexxi.design" className="text-foreground underline-offset-4 hover:underline">
+              hello@flexxi.design
+            </a>
+          </motion.p>
         </div>
       </section>
 
