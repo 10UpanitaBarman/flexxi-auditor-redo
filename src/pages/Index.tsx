@@ -42,8 +42,8 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       <nav className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <img src={flexxiLogo} alt="Flexxi" className="h-8 w-auto" />
-          <button className="cta-holo rounded-full px-6 py-2.5 text-sm font-semibold uppercase tracking-[0.15em] text-foreground">
-            Book a call
+          <button className="cta-holo flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground">
+            Book A Call <ArrowRight className="h-4 w-4" />
           </button>
         </div>
       </nav>
