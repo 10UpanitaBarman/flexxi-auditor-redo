@@ -88,13 +88,13 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             transition={{ delay: 0.35, duration: 0.6 }}
             className="input-holo mx-auto mt-10 flex max-w-xl items-center gap-0 rounded-full border border-border bg-card p-1.5 transition-all focus-within:border-transparent"
           >
-            <span className="pl-4 text-sm text-muted-foreground">https://</span>
+            <span className="pl-4 text-base text-muted-foreground">https://</span>
             <input
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder="yoursite.com"
-              className="flex-1 bg-transparent px-2 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground/50"
+              className="flex-1 bg-transparent px-2 py-3 text-base text-foreground outline-none placeholder:text-muted-foreground/50"
             />
             <button
               onClick={() => url && onSubmit?.(url)}
@@ -108,7 +108,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="mt-4 text-xs text-muted-foreground"
+            className="mt-4 text-sm text-muted-foreground"
           >
             Takes 15–30 seconds
           </motion.p>
