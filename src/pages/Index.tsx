@@ -198,22 +198,34 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="grid gap-4 sm:grid-cols-2"
+            className="grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:gap-16"
           >
-            {scoreRanges.map((r, i) => (
-              <motion.div
-                key={r.range}
-                variants={fadeUp}
-                custom={i}
-                className="rounded-2xl border border-border bg-background p-6 transition-all border-gradient-card"
-              >
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="font-heading text-2xl text-foreground">{r.range}</span>
-                  <span className="tag">{r.label}</span>
-                </div>
-                <p className="text-sm leading-relaxed text-muted-foreground">{r.desc}</p>
-              </motion.div>
-            ))}
+            <motion.h3
+              variants={fadeUp}
+              custom={0}
+              className="font-heading text-4xl leading-[1.05] tracking-tight text-foreground md:text-5xl lg:text-6xl"
+            >
+              Know where
+              <br />
+              you stand
+            </motion.h3>
+
+            <div className="flex flex-col divide-y divide-border">
+              {scoreRanges.map((r, i) => (
+                <motion.div
+                  key={r.range}
+                  variants={fadeUp}
+                  custom={i}
+                  className="py-6 first:pt-0 last:pb-0"
+                >
+                  <div className="mb-3 flex items-center gap-3">
+                    <span className="font-heading text-2xl text-foreground md:text-3xl">{r.range}</span>
+                    <span className="tag">{r.label}</span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{r.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
