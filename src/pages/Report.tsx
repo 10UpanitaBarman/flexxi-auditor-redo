@@ -505,7 +505,9 @@ const Report = ({ data, onReset }: ReportProps) => {
       {/* Footer */}
       <footer className="border-t border-border bg-background py-8">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
-          <img src={flexxiLogo} alt="Flexxi" className="h-6 w-auto opacity-60" />
+          <a href="https://www.flexxi.studio/who-we-are" target="_blank" rel="noopener noreferrer" aria-label="Flexxi">
+            <img src={flexxiLogo} alt="Flexxi" className="h-6 w-auto opacity-60 transition-opacity hover:opacity-100" />
+          </a>
           <button onClick={onReset} className="group text-sm text-muted-foreground transition-colors hover:text-foreground">
             ← Run another audit
           </button>
