@@ -145,7 +145,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             <motion.h2
               variants={fadeUp}
               custom={0}
-              className="font-heading text-base text-foreground"
+              className="font-heading text-2xl tracking-tight text-foreground md:text-3xl"
             >
               What we analyse
             </motion.h2>
