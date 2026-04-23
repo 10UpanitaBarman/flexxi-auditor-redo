@@ -44,14 +44,24 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
           <a href="https://www.flexxi.studio/who-we-are" target="_blank" rel="noopener noreferrer" aria-label="Flexxi">
             <img src={flexxiLogo} alt="Flexxi" className="h-8 w-auto" />
           </a>
-          <a
-            href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cta-holo inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground"
-          >
-            Book A Call <ArrowRight className="h-4 w-4" />
-          </a>
+          <div className="flex items-center gap-6">
+            <a
+              href="https://www.flexxi.studio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+            >
+              Studio
+            </a>
+            <a
+              href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-holo inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground"
+            >
+              Book A Call <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </nav>
 
