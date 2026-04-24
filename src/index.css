@@ -131,15 +131,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1.5px;
-    background: linear-gradient(
-      135deg,
-      hsl(300 80% 70%),
-      hsl(220 90% 70%),
-      hsl(180 80% 65%),
-      hsl(120 70% 65%),
-      hsl(60 80% 70%),
-      hsl(300 80% 70%)
-    );
+    background: var(--holo-gradient);
     background-size: 300% 300%;
     animation: holo-shift 4s ease-in-out infinite;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
