@@ -197,8 +197,8 @@
   /* Tag / label pill style */
   .tag {
     background: transparent;
-    color: hsl(0 0% 70%);
-    border: 1px solid hsl(0 0% 25%);
+    color: hsl(0 0% 96%);
+    border: 1px solid hsl(0 0% 96%);
     border-radius: 9999px;
     font-family: var(--font-body);
     font-size: 0.875rem;
@@ -207,8 +207,8 @@
   }
 
   .tag:hover {
-    color: hsl(0 0% 95%);
-    border-color: hsl(0 0% 45%);
+    color: hsl(0 0% 100%);
+    border-color: hsl(0 0% 100%);
   }
 
   /* Solid pill — transparent with stroke (used for hero label) */
