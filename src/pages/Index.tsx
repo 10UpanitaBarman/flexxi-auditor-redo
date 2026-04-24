@@ -199,7 +199,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       </section>
 
       {/* Score ranges */}
-      <section className="border-t border-border bg-background py-24 md:py-32">
+      <section className="bg-background py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial="hidden"
