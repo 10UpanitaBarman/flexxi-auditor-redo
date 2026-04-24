@@ -155,7 +155,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       </section>
 
       {/* Signals — Flexxi-style hover-reveal layout */}
-      <section className="border-t border-border bg-background py-24 md:py-32">
+      <section className="bg-background py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial="hidden"
@@ -199,7 +199,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       </section>
 
       {/* Score ranges */}
-      <section className="border-t border-border bg-background py-24 md:py-32">
+      <section className="bg-background py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial="hidden"
@@ -297,7 +297,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-background py-8">
+      <footer className="bg-background py-8">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
           <a href="https://www.flexxi.studio/who-we-are" target="_blank" rel="noopener noreferrer" aria-label="Flexxi">
             <img src={flexxiLogo} alt="Flexxi" className="h-6 w-auto opacity-60 transition-opacity hover:opacity-100" />
