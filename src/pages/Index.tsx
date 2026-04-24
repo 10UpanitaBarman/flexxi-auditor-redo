@@ -74,7 +74,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             transition={{ duration: 0.5 }}
             className="mx-auto mb-8 inline-flex"
           >
-            <span className="tag-solid">AEO Auditor</span>
+            <span className="text-sm font-medium text-foreground">AEO Auditor</span>
           </motion.div>
 
           <motion.h1
