@@ -297,7 +297,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-background py-8">
+      <footer className="bg-background py-8">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
           <a href="https://www.flexxi.studio/who-we-are" target="_blank" rel="noopener noreferrer" aria-label="Flexxi">
             <img src={flexxiLogo} alt="Flexxi" className="h-6 w-auto opacity-60 transition-opacity hover:opacity-100" />
