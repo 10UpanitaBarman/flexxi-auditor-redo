@@ -68,6 +68,17 @@
 
     --font-heading: 'ES Rebond Grotesque', sans-serif;
     --font-body: 'Aspekta', sans-serif;
+
+    /* Holographic pastel gradient — single source of truth */
+    --holo-gradient: linear-gradient(
+      135deg,
+      hsl(20 100% 82%),   /* peach */
+      hsl(340 100% 85%),  /* pink */
+      hsl(280 80% 82%),   /* lilac */
+      hsl(220 90% 82%),   /* sky blue */
+      hsl(170 70% 78%),   /* mint */
+      hsl(20 100% 82%)    /* peach loop */
+    );
   }
 }
 
