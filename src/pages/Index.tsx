@@ -115,9 +115,12 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             />
             <button
               onClick={() => url && onSubmit?.(url)}
-              className="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              className="cta-holo group flex items-center gap-3 rounded-full bg-primary py-1.5 pl-6 pr-1.5 text-sm font-semibold uppercase tracking-[0.1em] text-primary-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              Run audit <ArrowRight className="h-4 w-4" />
+              Run audit
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-background text-foreground">
+                <ArrowRight className="h-4 w-4" />
+              </span>
             </button>
           </motion.div>
 
