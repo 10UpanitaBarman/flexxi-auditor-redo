@@ -103,7 +103,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6 }}
-            className="input-holo mx-auto mt-10 flex max-w-xl items-center gap-0 rounded-full border border-border bg-card p-1.5 transition-all focus-within:border-transparent"
+            className="input-holo mx-auto mt-10 flex max-w-xl items-center gap-0 rounded-full border border-foreground bg-card p-1.5 transition-all"
           >
             <span className="pl-4 text-base text-muted-foreground">https://</span>
             <input
