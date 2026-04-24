@@ -252,7 +252,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
       </section>
 
       {/* CTA */}
-      <section className="relative border-t border-border py-32 md:py-48">
+      <section className="relative py-32 md:py-48">
         <div className="relative mx-auto max-w-6xl px-6 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
