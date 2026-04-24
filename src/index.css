@@ -130,7 +130,7 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    padding: 1.5px;
+    padding: 4px;
     background: var(--holo-gradient);
     background-size: 300% 300%;
     animation: holo-shift 4s ease-in-out infinite;
