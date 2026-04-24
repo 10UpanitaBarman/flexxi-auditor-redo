@@ -122,40 +122,23 @@
   /* Holographic gradient border CTA — always visible like Flexxi */
   .cta-holo {
     position: relative;
+    overflow: hidden;
     border: none;
     background: hsl(0 0% 4%);
-    isolation: isolate;
   }
 
-  /* Soft outer glow — wide, blurred halo of gradient */
-  .cta-holo::after {
-    content: '';
-    position: absolute;
-    inset: -14px;
-    border-radius: inherit;
-    background: var(--holo-gradient);
-    background-size: 300% 300%;
-    animation: holo-shift 4s ease-in-out infinite;
-    filter: blur(18px);
-    opacity: 0.85;
-    z-index: -2;
-    pointer-events: none;
-  }
-
-  /* Crisp inner gradient ring */
   .cta-holo::before {
     content: '';
     position: absolute;
-    inset: -2px;
+    inset: 0;
     border-radius: inherit;
-    padding: 3px;
+    padding: 4px;
     background: var(--holo-gradient);
     background-size: 300% 300%;
     animation: holo-shift 4s ease-in-out infinite;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    z-index: -1;
     pointer-events: none;
   }
 
