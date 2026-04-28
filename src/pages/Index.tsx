@@ -260,7 +260,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             transition={{ duration: 0.6 }}
             className="font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl"
           >
-            Looking for that strategic partner to elevate your product or brand?
+            Get your free AEO assessment and elevate your brand.
           </motion.h2>
 
           <motion.div
