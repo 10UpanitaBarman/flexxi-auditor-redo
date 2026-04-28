@@ -141,7 +141,7 @@ const Report = ({ data, onReset }: ReportProps) => {
               { label: "Total score", value: `${total}/100` },
             ].map((m) => (
               <div key={m.label} className="min-w-0">
-                <p className="max-w-full break-words font-heading text-3xl leading-[0.95] text-foreground md:text-4xl lg:text-5xl">
+                <p className="max-w-full truncate whitespace-nowrap font-heading text-2xl leading-none text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
                   {m.value}
                 </p>
                 <p className="mt-5 text-sm text-muted-foreground">{m.label}</p>
