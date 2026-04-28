@@ -494,9 +494,9 @@ const Report = ({ data, onReset }: ReportProps) => {
               rel="noopener noreferrer"
               className="cta-holo inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.15em] text-foreground"
             >
-              Book your audit live →
+              Get your free audit live!
             </a>
-            <p className="mt-4 text-xs text-muted-foreground">No commitment. We’ll improve your AEO together on the call.</p>
+            <p className="mt-4 text-xs text-muted-foreground">Let's improve your AEO together!</p>
           </motion.div>
         </div>
       </section>
