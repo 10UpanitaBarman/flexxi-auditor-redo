@@ -1,37 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 interface IndexProps {
   onSubmit?: (domain: string) => void;
 }
-import { ArrowRight, Search, Shield, BarChart3, FileText, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import flexxiLogo from "@/assets/flexxi-logo.png";
 
 const sampleDomains = ["flexxi.design", "ueno.co", "work.co", "instrument.com", "raresupremacy.com"];
-
-const scoreRanges = [
-  { range: "0–40", label: "Invisible", desc: "AI engines can't find or classify this site. No schema, likely blocking crawlers." },
-  { range: "41–60", label: "Partial", desc: "Crawlers allowed and brand visible — but no schema and weak structure." },
-  { range: "61–80", label: "Competitive", desc: "Schema present, entity clear, some structured content. Citable but not dominant." },
-  { range: "81–100", label: "Citation-ready", desc: "Everything in place. Brand shows up when someone asks AI \"who does X?\"" },
-];
-
-const signals = [
-  { num: "01", icon: Shield, title: "AI Crawlers", desc: "GPTBot · ClaudeBot · Perplexity — we check whether your site allows or blocks AI bots from accessing your content." },
-  { num: "02", icon: FileText, title: "Schema Markup", desc: "FAQPage · Organization · HowTo — we scan for structured data that helps AI engines understand what your site is about." },
-  { num: "03", icon: Search, title: "Entity Clarity", desc: "Brand + category clarity — we evaluate how clearly your site communicates who you are and what you do." },
-  { num: "04", icon: BarChart3, title: "Content Structure", desc: "FAQ · H2/H3 · comparison — we analyse your semantic HTML and content hierarchy for AI readability." },
-  { num: "05", icon: Zap, title: "Citability Score", desc: "Overall likelihood of being cited by AI engines when users ask questions related to your industry." },
-];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-  }),
-};
 
 const Index = ({ onSubmit }: IndexProps = {}) => {
   const [url, setUrl] = useState("");
@@ -158,148 +135,17 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
               </button>
             ))}
           </motion.div>
-        </div>
-      </section>
-
-      {/* Signals — Flexxi-style hover-reveal layout */}
-      <section className="bg-background py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="mb-12 border-b border-border pb-4"
-          >
-            <motion.h2
-              variants={fadeUp}
-              custom={0}
-              className="font-heading text-xl text-foreground md:text-2xl"
-            >
-              What we analyse
-            </motion.h2>
-          </motion.div>
 
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="flex flex-col"
-          >
-            {signals.map((s, i) => (
-              <motion.div
-                key={s.title}
-                variants={fadeUp}
-                custom={i}
-                className="group grid grid-cols-[auto_1fr_minmax(0,12rem)] items-start gap-3 rounded-lg px-2 py-6 transition-colors hover:bg-card md:grid-cols-[auto_1fr_minmax(0,22rem)] md:gap-8 md:py-8"
-              >
-                <span className="pt-2 text-xs text-muted-foreground md:pt-5">{s.num}</span>
-                <h3 className="font-heading text-3xl leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
-                  {s.title}
-                </h3>
-                <p className="pt-2 text-xs leading-relaxed text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:pt-3 md:text-sm">
-                  {s.desc}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Score ranges */}
-      <section className="bg-background py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="mb-12 border-b border-border pb-4"
-          >
-            <motion.h2
-              variants={fadeUp}
-              custom={0}
-              className="font-heading text-xl text-foreground md:text-2xl"
-            >
-              What your score means
-            </motion.h2>
-          </motion.div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:gap-16"
-          >
-            <motion.h3
-              variants={fadeUp}
-              custom={0}
-              className="font-heading text-4xl leading-[1.05] tracking-tight text-foreground md:text-5xl lg:text-6xl"
-            >
-              Know where
-              <br />
-              you stand
-            </motion.h3>
-
-            <div className="flex flex-col divide-y divide-border">
-              {scoreRanges.map((r, i) => (
-                <motion.div
-                  key={r.range}
-                  variants={fadeUp}
-                  custom={i}
-                  className="py-6 first:pt-0 last:pb-0"
-                >
-                  <div className="mb-3 flex items-center gap-3">
-                    <span className="font-heading text-2xl text-foreground md:text-3xl">{r.range}</span>
-                    <span className="tag">{r.label}</span>
-                  </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{r.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="relative py-32 md:py-48">
-        <div className="relative mx-auto max-w-6xl px-6 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl"
-          >
-            Get your free AEO assessment and elevate your brand.
-          </motion.h2>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="mt-12 flex justify-center"
-          >
-            <a
-              href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-holo inline-flex items-center gap-2 rounded-full px-12 py-4 text-base font-semibold tracking-wide text-foreground"
-            >
-              Book an intro call
-            </a>
-          </motion.div>
-
-          <motion.p
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="mt-10 text-sm text-muted-foreground"
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="mt-8"
           >
-            You can also send us an email 😉{" "}
-            <a href="mailto:hello@flexxi.design" className="text-foreground">
-              hello@flexxi.design
-            </a>
-          </motion.p>
+            <Link to="/learn" className="text-sm font-medium text-foreground underline-offset-4 transition-colors hover:underline">
+              Learn what we analyse
+            </Link>
+          </motion.div>
         </div>
       </section>
 
