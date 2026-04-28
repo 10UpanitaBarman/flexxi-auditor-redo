@@ -108,7 +108,7 @@
     background-size: 60px 60px;
   }
 
-  /* Printed border CTA — always visible like Flexxi */
+  /* Printed border CTA - always visible like Flexxi */
   .cta-holo {
     position: relative;
     overflow: hidden;
@@ -132,7 +132,7 @@
     pointer-events: none;
   }
 
-  /* Input field — clean white border */
+  /* Input field - clean white border */
   .input-holo {
     position: relative;
     overflow: hidden;
@@ -178,7 +178,7 @@
     border-color: hsl(0 0% 100%);
   }
 
-  /* Solid pill — transparent with stroke (used for hero label) */
+  /* Solid pill - transparent with stroke (used for hero label) */
   .tag-solid {
     background: transparent;
     color: hsl(0 0% 96%);
