@@ -69,18 +69,7 @@
     --font-heading: 'ES Rebond Grotesque', sans-serif;
     --font-body: 'Aspekta', sans-serif;
 
-    /* Holographic gradient — sampled from Flexxi reference */
-    --holo-gradient: linear-gradient(
-      135deg,
-      #87F4A8,   /* mint green */
-      #06F8E9,   /* cyan */
-      #1CD3FE,   /* sky blue */
-      #80AEFE,   /* periwinkle */
-      #C7A3FE,   /* lilac */
-      #E2CBE5,   /* pink */
-      #E6E1CF,   /* cream */
-      #87F4A8    /* loop back to mint */
-    );
+    --holo-gradient: url('./assets/printed-vs-holographic-colors-4.png'), hsl(0 0% 100%);
   }
 }
 
@@ -119,7 +108,7 @@
     background-size: 60px 60px;
   }
 
-  /* Holographic gradient border CTA — always visible like Flexxi */
+  /* Printed border CTA — always visible like Flexxi */
   .cta-holo {
     position: relative;
     overflow: hidden;
@@ -134,15 +123,15 @@
     border-radius: inherit;
     padding: 4px;
     background: var(--holo-gradient);
-    background-size: 300% 300%;
-    animation: holo-shift 4s ease-in-out infinite;
+    background-size: cover;
+    background-position: center;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
   }
 
-  /* Input field — shows holo border on focus */
+  /* Input field — shows printed border on focus */
   .input-holo {
     position: relative;
     overflow: hidden;
@@ -155,8 +144,8 @@
     border-radius: 9999px;
     padding: 1.5px;
     background: var(--holo-gradient);
-    background-size: 300% 300%;
-    animation: holo-shift 4s ease-in-out infinite;
+    background-size: cover;
+    background-position: center;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -170,24 +159,6 @@
   }
 
   .input-holo:focus-within::before {
-    opacity: 1;
-  }
-
-  .input-holo::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 9999px;
-    opacity: 0;
-    transition: opacity 0.4s;
-    pointer-events: none;
-    box-shadow:
-      0 0 15px 2px hsl(300 70% 65% / 0.1),
-      0 0 30px 4px hsl(200 80% 65% / 0.08),
-      0 0 50px 8px hsl(160 70% 60% / 0.05);
-  }
-
-  .input-holo:focus-within::after {
     opacity: 1;
   }
 
@@ -221,8 +192,4 @@
     align-items: center;
   }
 
-  @keyframes holo-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
 }
