@@ -18,6 +18,21 @@ const signals = [
   { num: "05", icon: Zap, title: "Citability Score", desc: "Overall likelihood of being cited by AI engines when users ask questions related to your industry." },
 ];
 
+const auditSteps = [
+  { label: "Enter", title: "Add your website", desc: "Drop in a domain and we inspect the public homepage signals that shape AI search visibility." },
+  { label: "Analyse", title: "Map the visibility gaps", desc: "We read crawler access, schema, semantic structure, brand clarity, and citation-readiness together." },
+  { label: "Act", title: "Get a usable report", desc: "The output translates technical findings into practical next steps your team can prioritise." },
+];
+
+const reportDetails = [
+  "A clear AEO visibility score",
+  "Crawler access checks",
+  "Schema and structured data review",
+  "Entity clarity assessment",
+  "Content structure and citability notes",
+  "Prioritised recommendations",
+];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
@@ -41,6 +56,24 @@ const Learn = () => (
     </nav>
 
     <main className="pt-32">
+      <section className="bg-background pb-16 pt-10 md:pb-24 md:pt-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:gap-16">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl">
+            AI search visibility, made readable.
+          </motion.h1>
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.6 }} className="flex flex-col justify-end gap-6">
+            <p className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
+              The audit looks at the signals AI engines use to understand, classify, and cite your brand.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <span className="tag">Visibility</span>
+              <span className="tag">Positioning</span>
+              <span className="tag">Citability</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="bg-background py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12 border-b border-border pb-4">
@@ -55,6 +88,26 @@ const Learn = () => (
                 <span className="pt-2 text-xs text-muted-foreground md:pt-5">{s.num}</span>
                 <h2 className="font-heading text-3xl leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">{s.title}</h2>
                 <p className="pt-2 text-xs leading-relaxed text-muted-foreground opacity-100 md:pt-3 md:text-sm md:opacity-0 md:transition-opacity md:duration-300 md:group-hover:opacity-100">{s.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-background py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12 border-b border-border pb-4">
+            <motion.h2 variants={fadeUp} custom={0} className="font-heading text-xl text-foreground md:text-2xl">
+              How it works
+            </motion.h2>
+          </motion.div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {auditSteps.map((step, i) => (
+              <motion.div key={step.title} variants={fadeUp} custom={i} className="border-t border-border pt-6">
+                <span className="tag mb-6 inline-flex">{step.label}</span>
+                <h3 className="font-heading text-3xl leading-[1.05] text-foreground md:text-5xl">{step.title}</h3>
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -86,6 +139,28 @@ const Learn = () => (
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-background py-24 md:py-32">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
+            <motion.h2 variants={fadeUp} custom={0} className="font-heading text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
+              What you get back
+            </motion.h2>
+            <motion.p variants={fadeUp} custom={1} className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
+              A compact report that shows where your brand is visible, where it is unclear, and what to fix first.
+            </motion.p>
+          </motion.div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="flex flex-col divide-y divide-border">
+            {reportDetails.map((detail, i) => (
+              <motion.div key={detail} variants={fadeUp} custom={i} className="flex items-center justify-between gap-6 py-5 first:pt-0">
+                <span className="text-sm text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                <p className="flex-1 font-heading text-2xl leading-tight text-foreground md:text-4xl">{detail}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
