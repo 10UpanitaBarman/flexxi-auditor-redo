@@ -83,9 +83,9 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl"
           >
-            AEO Audit
+            How are you ranking
             <br />
-            in seconds.
+            on AI Search?
           </motion.h1>
 
           <motion.p
