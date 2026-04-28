@@ -23,7 +23,7 @@ function totalScore(d: AuditResult) {
 
 function verdictLabel(score: number) {
   if (score <= 40) return { label: "Invisible", desc: "AI engines can't find or classify this site. No schema, likely blocking crawlers." };
-  if (score <= 60) return { label: "Partial", desc: "Crawlers allowed and brand visible — but no schema and weak structure." };
+  if (score <= 60) return { label: "Partial", desc: "Crawlers allowed and brand visible - but no schema and weak structure." };
   if (score <= 80) return { label: "Competitive", desc: "Schema present, entity clear, some structured content. Citable but not dominant." };
   return { label: "Citation-ready", desc: "Everything in place. Brand shows up when someone asks AI \"who does X?\"" };
 }
@@ -116,7 +116,7 @@ const Report = ({ data, onReset }: ReportProps) => {
       <section className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="relative mx-auto max-w-5xl px-6">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="font-body text-xs font-medium text-muted-foreground">
-            AEO audit report — prepared by Flexxi
+            AEO audit report - prepared by Flexxi
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
