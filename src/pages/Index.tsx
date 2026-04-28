@@ -102,7 +102,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6 }}
-            className="input-holo mx-auto mt-10 flex max-w-xl items-center gap-0 rounded-full border border-foreground bg-card p-1.5 transition-all"
+            className="input-holo mx-auto mt-10 flex max-w-xl items-center gap-0 rounded-full border border-foreground bg-card px-1.5 transition-all"
           >
             <span className="pl-4 text-base text-muted-foreground">https://</span>
             <input
@@ -110,8 +110,16 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder="yoursite.com"
-              className="flex-1 bg-transparent px-2 py-3 text-base text-foreground outline-none placeholder:text-muted-foreground/50"
+              className="flex-1 bg-transparent px-2 py-3.5 text-base text-foreground outline-none placeholder:text-muted-foreground/50"
             />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.42, duration: 0.6 }}
+            className="mt-6 flex justify-center"
+          >
             <button
               onClick={() => url && onSubmit?.(url)}
               style={{ background: "hsl(0 0% 100%)" }}
