@@ -114,6 +114,7 @@
     overflow: hidden;
     border: none;
     background: hsl(0 0% 4%);
+    font-family: var(--font-heading);
   }
 
   .cta-holo::before {
