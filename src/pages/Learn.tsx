@@ -98,6 +98,26 @@ const Learn = () => (
         <div className="mx-auto max-w-7xl px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12 border-b border-border pb-4">
             <motion.h2 variants={fadeUp} custom={0} className="font-heading text-xl text-foreground md:text-2xl">
+              How it works
+            </motion.h2>
+          </motion.div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {auditSteps.map((step, i) => (
+              <motion.div key={step.title} variants={fadeUp} custom={i} className="border-t border-border pt-6">
+                <span className="tag mb-6 inline-flex">{step.label}</span>
+                <h3 className="font-heading text-3xl leading-[1.05] text-foreground md:text-5xl">{step.title}</h3>
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-background py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mb-12 border-b border-border pb-4">
+            <motion.h2 variants={fadeUp} custom={0} className="font-heading text-xl text-foreground md:text-2xl">
               What your score means
             </motion.h2>
           </motion.div>
