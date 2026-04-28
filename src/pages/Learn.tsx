@@ -58,12 +58,13 @@ const Learn = () => (
     <main className="pt-32">
       <section className="bg-background pb-16 pt-10 md:pb-24 md:pt-20">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:gap-16">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl">
-            AI search visibility, made readable.
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="font-heading text-5xl leading-[1.05] text-foreground md:text-7xl lg:text-8xl">
+            AEO Audit
+            <br />& Assessment
           </motion.h1>
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.6 }} className="flex flex-col justify-end gap-6">
             <p className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-              The audit looks at the signals AI engines use to understand, classify, and cite your brand.
+              Ready to improve your AI visibility?
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="tag">Visibility</span>
@@ -146,11 +147,11 @@ const Learn = () => (
       <section className="bg-background py-24 md:py-32">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
-            <motion.h2 variants={fadeUp} custom={0} className="font-heading text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
-              What you get back
+            <motion.h2 variants={fadeUp} custom={0} className="font-heading text-4xl leading-[1.05] text-foreground md:text-6xl lg:text-7xl">
+              AEO audit report — prepared by Flexxi
             </motion.h2>
             <motion.p variants={fadeUp} custom={1} className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-              A compact report that shows where your brand is visible, where it is unclear, and what to fix first.
+              Aspekta, sentence case: clear recommendations, practical next steps, and the visibility signals that matter.
             </motion.p>
           </motion.div>
 
@@ -168,7 +169,7 @@ const Learn = () => (
       <section className="relative py-32 md:py-48">
         <div className="relative mx-auto max-w-6xl px-6 text-center">
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl">
-            Get your free AEO assessment and elevate your brand.
+            Want Flexxi to fix this for you?
           </motion.h2>
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.5 }} className="mt-12 flex justify-center">
