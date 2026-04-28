@@ -140,8 +140,10 @@ const Report = ({ data, onReset }: ReportProps) => {
               { label: "Date", value: today },
               { label: "Total score", value: `${total}/100` },
             ].map((m) => (
-              <div key={m.label}>
-                <p className="font-heading text-3xl leading-none text-foreground md:text-5xl lg:text-6xl">{m.value}</p>
+              <div key={m.label} className="min-w-0">
+                <p className="max-w-full break-words font-heading text-3xl leading-[0.95] text-foreground md:text-4xl lg:text-5xl">
+                  {m.value}
+                </p>
                 <p className="mt-5 text-sm text-muted-foreground">{m.label}</p>
               </div>
             ))}
