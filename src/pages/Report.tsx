@@ -132,7 +132,7 @@ const Report = ({ data, onReset }: ReportProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="mt-16 grid grid-cols-2 gap-x-8 gap-y-12 border-t border-border pt-12 md:grid-cols-4 md:gap-x-16"
+            className="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 border-t border-border pt-12 md:grid-cols-4 md:gap-x-10"
           >
             {[
               { label: "Domain", value: data.domain },
@@ -141,7 +141,7 @@ const Report = ({ data, onReset }: ReportProps) => {
               { label: "Total score", value: `${total}/100` },
             ].map((m) => (
               <div key={m.label} className="min-w-0">
-                <p className="max-w-full truncate whitespace-nowrap font-heading text-2xl leading-none text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
+                <p className="max-w-full whitespace-nowrap font-heading text-[clamp(1.5rem,2.45vw,3.25rem)] leading-none text-foreground">
                   {m.value}
                 </p>
                 <p className="mt-5 text-sm text-muted-foreground">{m.label}</p>
