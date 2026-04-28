@@ -131,7 +131,7 @@
     pointer-events: none;
   }
 
-  /* Input field — shows printed border on focus */
+  /* Input field — clean white border */
   .input-holo {
     position: relative;
     overflow: hidden;
@@ -142,10 +142,8 @@
     position: absolute;
     inset: 0;
     border-radius: 9999px;
-    padding: 4px;
-    background: var(--holo-gradient);
-    background-size: cover;
-    background-position: center;
+    padding: 2px;
+    background: hsl(var(--foreground));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
