@@ -121,7 +121,7 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    padding: 4px;
+    padding: 5px;
     background: var(--holo-gradient);
     background-size: cover;
     background-position: center;
@@ -142,20 +142,20 @@
     position: absolute;
     inset: 0;
     border-radius: 9999px;
-    padding: 1.5px;
+    padding: 4px;
     background: var(--holo-gradient);
     background-size: cover;
     background-position: center;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.4s;
     pointer-events: none;
   }
 
   .input-holo:hover::before {
-    opacity: 0.5;
+    opacity: 1;
   }
 
   .input-holo:focus-within::before {
