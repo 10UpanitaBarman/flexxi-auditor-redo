@@ -115,14 +115,14 @@ const Report = ({ data, onReset }: ReportProps) => {
       {/* ══════════════ COVER ══════════════ */}
       <section className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="relative mx-auto max-w-5xl px-6">
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
             AEO Audit Report — Prepared by Flexxi
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl"
+            className="mt-6 font-heading text-5xl leading-[1.05] text-foreground md:text-7xl lg:text-8xl"
           >
             AEO Audit
             <br />& Assessment
@@ -470,8 +470,7 @@ const Report = ({ data, onReset }: ReportProps) => {
             transition={{ duration: 0.6 }}
             className="font-heading text-4xl tracking-tight text-foreground md:text-6xl"
           >
-            Want Flexxi to fix
-            <br />this for you?
+            Ready to improve your AI visibility?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -480,7 +479,7 @@ const Report = ({ data, onReset }: ReportProps) => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="mt-4 text-muted-foreground"
           >
-            We build AEO infrastructure for design studios — schema, crawler access, entity clarity, and structured content.
+            We build AEO infrastructure to elevate your web presence and improve how you're found.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
