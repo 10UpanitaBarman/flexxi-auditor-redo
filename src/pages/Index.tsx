@@ -94,7 +94,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground"
           >
-            See how your brand shows up across ChatGPT, Gemini, Claude, and Perplexity — not just if you’re mentioned, but how you’re positioned. Free.
+            See how your brand shows up across ChatGPT, Gemini, Claude, and Perplexity -not just if you’re mentioned, but how you’re positioned. Free.
           </motion.p>
 
           {/* Input */}
