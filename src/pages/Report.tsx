@@ -115,8 +115,8 @@ const Report = ({ data, onReset }: ReportProps) => {
       {/* ══════════════ COVER ══════════════ */}
       <section className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="relative mx-auto max-w-5xl px-6">
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
-            AEO Audit Report — Prepared by Flexxi
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="font-body text-xs font-medium text-muted-foreground">
+            AEO audit report — prepared by Flexxi
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
