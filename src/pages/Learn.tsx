@@ -18,6 +18,21 @@ const signals = [
   { num: "05", icon: Zap, title: "Citability Score", desc: "Overall likelihood of being cited by AI engines when users ask questions related to your industry." },
 ];
 
+const auditSteps = [
+  { label: "Enter", title: "Add your website", desc: "Drop in a domain and we inspect the public homepage signals that shape AI search visibility." },
+  { label: "Analyse", title: "Map the visibility gaps", desc: "We read crawler access, schema, semantic structure, brand clarity, and citation-readiness together." },
+  { label: "Act", title: "Get a usable report", desc: "The output translates technical findings into practical next steps your team can prioritise." },
+];
+
+const reportDetails = [
+  "A clear AEO visibility score",
+  "Crawler access checks",
+  "Schema and structured data review",
+  "Entity clarity assessment",
+  "Content structure and citability notes",
+  "Prioritised recommendations",
+];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
