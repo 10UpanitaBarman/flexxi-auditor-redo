@@ -5,16 +5,16 @@ import flexxiLogo from "@/assets/flexxi-logo.png";
 
 const scoreRanges = [
   { range: "0–40", label: "Invisible", desc: "AI engines can't find or classify this site. No schema, likely blocking crawlers." },
-  { range: "41–60", label: "Partial", desc: "Crawlers allowed and brand visible — but no schema and weak structure." },
+  { range: "41–60", label: "Partial", desc: "Crawlers allowed and brand visible - but no schema and weak structure." },
   { range: "61–80", label: "Competitive", desc: "Schema present, entity clear, some structured content. Citable but not dominant." },
   { range: "81–100", label: "Citation-ready", desc: "Everything in place. Brand shows up when someone asks AI \"who does X?\"" },
 ];
 
 const signals = [
-  { num: "01", icon: Shield, title: "AI Crawlers", desc: "GPTBot · ClaudeBot · Perplexity — we check whether your site allows or blocks AI bots from accessing your content." },
-  { num: "02", icon: FileText, title: "Schema Markup", desc: "FAQPage · Organization · HowTo — we scan for structured data that helps AI engines understand what your site is about." },
-  { num: "03", icon: Search, title: "Entity Clarity", desc: "Brand + category clarity — we evaluate how clearly your site communicates who you are and what you do." },
-  { num: "04", icon: BarChart3, title: "Content Structure", desc: "FAQ · H2/H3 · comparison — we analyse your semantic HTML and content hierarchy for AI readability." },
+  { num: "01", icon: Shield, title: "AI Crawlers", desc: "GPTBot · ClaudeBot · Perplexity - we check whether your site allows or blocks AI bots from accessing your content." },
+  { num: "02", icon: FileText, title: "Schema Markup", desc: "FAQPage · Organization · HowTo - we scan for structured data that helps AI engines understand what your site is about." },
+  { num: "03", icon: Search, title: "Entity Clarity", desc: "Brand + category clarity - we evaluate how clearly your site communicates who you are and what you do." },
+  { num: "04", icon: BarChart3, title: "Content Structure", desc: "FAQ · H2/H3 · comparison - we analyse your semantic HTML and content hierarchy for AI readability." },
   { num: "05", icon: Zap, title: "Citability Score", desc: "Overall likelihood of being cited by AI engines when users ask questions related to your industry." },
 ];
 
@@ -148,7 +148,7 @@ const Learn = () => (
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <motion.h2 variants={fadeUp} custom={0} className="font-heading text-4xl leading-[1.05] text-foreground md:text-6xl lg:text-7xl">
-              AEO audit report — prepared by Flexxi
+              AEO audit report - prepared by Flexxi
             </motion.h2>
             <motion.p variants={fadeUp} custom={1} className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
               Aspekta, sentence case: clear recommendations, practical next steps, and the visibility signals that matter.

@@ -14,7 +14,7 @@ const mockData: AuditResult = {
   key_findings: [
     "Your website has no schema markup whatsoever. When AI engines like ChatGPT, Perplexity, or Google's AI Overview try to understand what your business does, they find no structured data to work with. This means your brand is invisible to the fastest-growing discovery channel in digital marketing.",
     "AI crawlers are partially blocked by your robots.txt configuration. GPTBot and ClaudeBot can access your site, but PerplexityBot receives a 'warn' status, meaning some AI engines may not be indexing your content at all.",
-    "Your homepage fails to clearly state who you are and what you do in the first 200 words. The entity signal — the combination of brand name, category, and market — is buried below the fold, making it difficult for AI engines to classify your business.",
+    "Your homepage fails to clearly state who you are and what you do in the first 200 words. The entity signal - the combination of brand name, category, and market - is buried below the fold, making it difficult for AI engines to classify your business.",
     "There are no FAQ sections, no comparison content, and no structured headings that AI engines can easily parse into direct answers. Your content structure scores poorly because there's nothing citable.",
     "Your brand name appears inconsistently across the site. The page title, meta description, and body content use slightly different variations, which fragments your entity signal and confuses AI classification systems.",
   ],
@@ -39,7 +39,7 @@ const mockData: AuditResult = {
     {
       severity: "Critical",
       title: "No Schema Markup Detected",
-      summary: "Your website contains zero schema markup — no Organization, FAQPage, HowTo, or any other structured data types. This is the single most important technical signal for AI engine visibility.\n\nWhen a user asks ChatGPT or Perplexity 'who does design work in [your market]?', the AI engine looks for structured data to identify and classify businesses. Without schema, your site is essentially invisible to this classification process.\n\nCompetitors with even basic Organization schema are significantly more likely to be cited in AI-generated answers.",
+      summary: "Your website contains zero schema markup - no Organization, FAQPage, HowTo, or any other structured data types. This is the single most important technical signal for AI engine visibility.\n\nWhen a user asks ChatGPT or Perplexity 'who does design work in [your market]?', the AI engine looks for structured data to identify and classify businesses. Without schema, your site is essentially invisible to this classification process.\n\nCompetitors with even basic Organization schema are significantly more likely to be cited in AI-generated answers.",
       evidence: [
         "No JSON-LD or microdata found in page source",
         "No Organization schema defining brand and category",
