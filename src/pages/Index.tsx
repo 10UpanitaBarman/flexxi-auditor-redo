@@ -94,8 +94,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground"
           >
-            Enter any website URL. We analyse the homepage, score 5 AEO signals,
-            and generate a full report — ready to send to a prospect.
+            See how your brand shows up across ChatGPT, Gemini, Claude, and Perplexity — not just if you’re mentioned, but how you’re positioned. Free.
           </motion.p>
 
           {/* Input */}
