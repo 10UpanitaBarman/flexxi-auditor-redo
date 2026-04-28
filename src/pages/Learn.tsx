@@ -143,6 +143,28 @@ const Learn = () => (
         </div>
       </section>
 
+      <section className="bg-background py-24 md:py-32">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-16">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
+            <motion.h2 variants={fadeUp} custom={0} className="font-heading text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
+              What you get back
+            </motion.h2>
+            <motion.p variants={fadeUp} custom={1} className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
+              A compact report that shows where your brand is visible, where it is unclear, and what to fix first.
+            </motion.p>
+          </motion.div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="flex flex-col divide-y divide-border">
+            {reportDetails.map((detail, i) => (
+              <motion.div key={detail} variants={fadeUp} custom={i} className="flex items-center justify-between gap-6 py-5 first:pt-0">
+                <span className="text-sm text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                <p className="flex-1 font-heading text-2xl leading-tight text-foreground md:text-4xl">{detail}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       <section className="relative py-32 md:py-48">
         <div className="relative mx-auto max-w-6xl px-6 text-center">
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="font-heading text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl lg:text-8xl">
