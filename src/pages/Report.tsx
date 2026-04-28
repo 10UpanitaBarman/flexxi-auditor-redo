@@ -132,7 +132,7 @@ const Report = ({ data, onReset }: ReportProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border md:grid-cols-4"
+            className="mt-16 grid grid-cols-2 gap-x-8 gap-y-12 border-t border-border pt-12 md:grid-cols-4 md:gap-x-16"
           >
             {[
               { label: "Domain", value: data.domain },
@@ -140,9 +140,9 @@ const Report = ({ data, onReset }: ReportProps) => {
               { label: "Date", value: today },
               { label: "Total score", value: `${total}/100` },
             ].map((m) => (
-              <div key={m.label} className="bg-card p-5">
-                <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">{m.label}</p>
-                <p className="mt-1 font-heading text-lg text-foreground">{m.value}</p>
+              <div key={m.label}>
+                <p className="font-heading text-3xl leading-none text-foreground md:text-5xl lg:text-6xl">{m.value}</p>
+                <p className="mt-5 text-sm text-muted-foreground">{m.label}</p>
               </div>
             ))}
           </motion.div>
