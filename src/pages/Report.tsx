@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import type { AuditResult, CrawlerStatus, Severity } from "@/types/audit";
 import flexxiLogo from "@/assets/flexxi-logo.png";
 
@@ -503,10 +504,10 @@ const Report = ({ data, onReset }: ReportProps) => {
               href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ padding: "0.875rem 2.5rem" }}
-              className="cta-holo inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] text-foreground"
+              style={{ padding: "1.25rem 3rem" }}
+              className="cta-holo inline-flex items-center gap-2 rounded-full text-base font-semibold tracking-[0.05em] text-foreground"
             >
-              Book A Call
+              Book A Call <ArrowRight className="h-4 w-4" />
             </a>
             <p className="mt-4 text-xs text-muted-foreground">Let's improve your AEO together!</p>
           </motion.div>
