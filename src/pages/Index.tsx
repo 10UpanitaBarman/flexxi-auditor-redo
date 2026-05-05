@@ -34,9 +34,9 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
               href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-holo inline-flex items-center gap-2 rounded-full px-9 py-4 text-xs font-semibold uppercase tracking-[0.15em] text-foreground"
+              className="cta-holo inline-flex items-center gap-2 rounded-full px-9 py-4 text-xs font-semibold tracking-[0.05em] text-foreground"
             >
-              Book A Call <ArrowRight className="h-4 w-4" />
+              Book a call <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
@@ -100,7 +100,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             <button
               onClick={() => url && onSubmit?.(url)}
               style={{ background: "hsl(0 0% 100%)" }}
-              className="cta-holo group flex items-center gap-3 rounded-full py-1.5 pl-6 pr-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-black transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              className="cta-holo group flex items-center gap-3 rounded-full py-1.5 pl-6 pr-1.5 text-xs font-semibold tracking-[0.05em] text-black transition-transform hover:scale-[1.02] active:scale-[0.98]"
             >
               Run audit
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white">
