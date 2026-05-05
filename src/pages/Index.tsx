@@ -100,7 +100,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
           >
             <button
               onClick={() => url && onSubmit?.(url)}
-              style={{ padding: "0.875rem 2.5rem", background: "hsl(0 0% 100%)", color: "hsl(0 0% 0%)" }}
+              style={{ padding: "0.875rem 2.5rem", background: "hsl(0 0% 100%)", color: "hsl(0 0% 0%)", border: "none" }}
               className="cta-holo inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] transition-transform hover:scale-[1.02] active:scale-[0.98]"
             >
               Run audit <ArrowRight className="h-4 w-4" />
