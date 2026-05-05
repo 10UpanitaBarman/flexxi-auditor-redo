@@ -108,28 +108,47 @@
     background-size: 60px 60px;
   }
 
-  /* Printed border CTA - always visible like Flexxi */
+  /* Holographic foil CTA - always-visible holo border */
   .cta-holo {
     position: relative;
-    overflow: hidden;
-    border: none;
-    background: hsl(0 0% 4%);
-    font-family: var(--font-heading);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 2.25rem;
+    border-radius: 9999px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    color: hsl(var(--foreground));
+    background: hsl(var(--background));
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
   }
 
   .cta-holo::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    border-radius: inherit;
-    padding: 3px;
+    border-radius: 9999px;
+    padding: 2px;
     background: var(--holo-gradient);
     background-size: cover;
     background-position: center;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
-    mask-composite: exclude;
+            mask-composite: exclude;
     pointer-events: none;
+  }
+
+  .cta-holo:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 30px -8px hsl(0 0% 100% / 0.25);
   }
 
   /* Input field - clean white border */
