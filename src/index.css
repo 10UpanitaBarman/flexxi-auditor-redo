@@ -132,6 +132,10 @@
     pointer-events: none;
   }
 
+  .cta-holo-thin::before {
+    padding: 3px;
+  }
+
   /* Input field - clean white border */
   .input-holo {
     position: relative;
