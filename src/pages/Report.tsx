@@ -115,7 +115,7 @@ const Report = ({ data, onReset }: ReportProps) => {
 
       {/* ══════════════ COVER ══════════════ */}
       <section className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
-        <div className="relative mx-auto max-w-5xl px-6">
+        <div className="relative mx-auto max-w-7xl px-6 md:px-12">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="font-body text-xs font-medium text-muted-foreground">
             AEO audit report - prepared by Flexxi
           </motion.p>
@@ -163,7 +163,7 @@ const Report = ({ data, onReset }: ReportProps) => {
 
       {/* ══════════════ EXECUTIVE SUMMARY ══════════════ */}
       <section className="border-t border-border bg-background py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}>
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
               Executive Summary
@@ -206,7 +206,7 @@ const Report = ({ data, onReset }: ReportProps) => {
 
       {/* ══════════════ DETAILED FINDINGS ══════════════ */}
       <section className="border-t border-border bg-background py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="mb-16">
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
               Technical Deep Dive
@@ -269,7 +269,7 @@ const Report = ({ data, onReset }: ReportProps) => {
 
       {/* ══════════════ SCORE OVERVIEW ══════════════ */}
       <section className="border-t border-border bg-background py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="mb-12">
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
               Signal Scores
@@ -350,7 +350,7 @@ const Report = ({ data, onReset }: ReportProps) => {
 
       {/* ══════════════ TECHNOLOGY STACK ══════════════ */}
       <section className="border-t border-border bg-background py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="mb-12">
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
               Under the Hood
@@ -390,7 +390,7 @@ const Report = ({ data, onReset }: ReportProps) => {
 
       {/* ══════════════ COMPETITIVE POSITIONING ══════════════ */}
       <section className="border-t border-border bg-background py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="mb-12">
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
               Market Context
@@ -430,7 +430,7 @@ const Report = ({ data, onReset }: ReportProps) => {
 
       {/* ══════════════ RECOMMENDATIONS ══════════════ */}
       <section className="border-t border-border bg-background py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="mb-12">
             <motion.p variants={fadeUp} custom={0} className="mb-4 text-sm uppercase tracking-[0.15em] text-muted-foreground">
               Action Plan
@@ -474,7 +474,7 @@ const Report = ({ data, onReset }: ReportProps) => {
 
       {/* ══════════════ CTA ══════════════ */}
       <section className="relative border-t border-border py-20 md:py-28">
-        <div className="relative mx-auto max-w-3xl px-6 text-center">
+        <div className="relative mx-auto max-w-4xl px-6 md:px-12 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -516,7 +516,7 @@ const Report = ({ data, onReset }: ReportProps) => {
 
       {/* Footer */}
       <footer className="border-t border-border bg-background py-8">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-12">
           <a href="https://www.flexxi.studio/who-we-are" target="_blank" rel="noopener noreferrer" aria-label="Flexxi">
             <img src={flexxiLogo} alt="Flexxi" className="h-6 w-auto opacity-60 transition-opacity hover:opacity-100" />
           </a>
