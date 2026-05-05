@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Index from "./Index";
+import Gate, { type LeadInfo } from "./Gate";
 import Loading from "./Loading";
 import Report from "./Report";
 import { runAEOAudit } from "@/lib/claude";
 import type { AuditResult } from "@/types/audit";
 
-type AppState = "idle" | "loading" | "done";
+type AppState = "idle" | "gate" | "loading" | "done";
 
 const mockData: AuditResult = {
   domain: "example.com",
