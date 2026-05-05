@@ -37,7 +37,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
               style={{ padding: "0.875rem 2.5rem" }}
               className="cta-holo inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] text-foreground"
             >
-              Book a call <ArrowRight className="h-4 w-4" />
+              Book A Call <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
