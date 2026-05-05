@@ -139,14 +139,23 @@ const Report = ({ data, onReset }: ReportProps) => {
               { label: "Industry", value: data.niche },
               { label: "Date", value: today },
               { label: "Total score", value: `${total}/100` },
-            ].map((m) => (
-              <div key={m.label} className="min-w-0">
-                <p className="max-w-full whitespace-nowrap font-heading text-[clamp(1.5rem,2.45vw,3.25rem)] leading-none text-foreground">
-                  {m.value}
-                </p>
-                <p className="mt-5 text-sm text-muted-foreground">{m.label}</p>
-              </div>
-            ))}
+            ].map((m) => {
+              const len = String(m.value).length;
+              const sizeClass =
+                len > 18
+                  ? "text-[clamp(1rem,1.4vw,1.75rem)]"
+                  : len > 12
+                  ? "text-[clamp(1.125rem,1.85vw,2.25rem)]"
+                  : "text-[clamp(1.5rem,2.45vw,3.25rem)]";
+              return (
+                <div key={m.label} className="min-w-0">
+                  <p className={`max-w-full break-words font-heading ${sizeClass} leading-tight text-foreground`}>
+                    {m.value}
+                  </p>
+                  <p className="mt-5 text-sm text-muted-foreground">{m.label}</p>
+                </div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
