@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Index from "./Index";
+import Gate, { type LeadInfo } from "./Gate";
 import Loading from "./Loading";
 import Report from "./Report";
 import { runAEOAudit } from "@/lib/claude";
 import type { AuditResult } from "@/types/audit";
 
-type AppState = "idle" | "loading" | "done";
+type AppState = "idle" | "gate" | "loading" | "done";
 
 const mockData: AuditResult = {
   domain: "example.com",
@@ -111,24 +112,30 @@ const mockData: AuditResult = {
 const AuditPage = () => {
   const [state, setState] = useState<AppState>("idle");
   const [domain, setDomain] = useState("");
+  const [, setLead] = useState<LeadInfo | null>(null);
   const [auditData, setAuditData] = useState<AuditResult | null>(null);
 
-  const handleSubmit = async (rawDomain: string) => {
+  const handleDomainSubmit = (rawDomain: string) => {
     let cleaned = rawDomain.trim();
     cleaned = cleaned.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/+$/, "");
     if (!cleaned) return;
-
     setDomain(cleaned);
+    setState("gate");
+    window.scrollTo(0, 0);
+  };
+
+  const handleGateContinue = async (info: LeadInfo) => {
+    setLead(info);
     setState("loading");
     window.scrollTo(0, 0);
 
     try {
-      const result = await runAEOAudit(cleaned);
+      const result = await runAEOAudit(domain);
       setAuditData(result);
       setState("done");
     } catch (err) {
       console.error("Audit failed, using mock data:", err);
-      setAuditData({ ...mockData, domain: cleaned });
+      setAuditData({ ...mockData, domain });
       setState("done");
     }
     window.scrollTo(0, 0);
@@ -137,6 +144,7 @@ const AuditPage = () => {
   const handleReset = () => {
     setState("idle");
     setDomain("");
+    setLead(null);
     setAuditData(null);
     window.scrollTo(0, 0);
   };
@@ -151,7 +159,18 @@ const AuditPage = () => {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.4 }}
         >
-          <Index onSubmit={handleSubmit} />
+          <Index onSubmit={handleDomainSubmit} />
+        </motion.div>
+      )}
+      {state === "gate" && (
+        <motion.div
+          key="gate"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4 }}
+        >
+          <Gate domain={domain} onContinue={handleGateContinue} onBack={handleReset} />
         </motion.div>
       )}
       {state === "loading" && (
