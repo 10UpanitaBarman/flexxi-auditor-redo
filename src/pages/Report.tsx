@@ -494,7 +494,7 @@ const Report = ({ data, onReset }: ReportProps) => {
               href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-holo inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.15em] text-foreground"
+              className="cta-holo inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.15em] text-foreground"
             >
               Get your free audit live!
             </a>
