@@ -34,7 +34,8 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
               href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-holo inline-flex items-center gap-2 rounded-full px-9 py-4 text-xs font-semibold tracking-[0.05em] text-foreground"
+              style={{ padding: "0.875rem 2.5rem" }}
+              className="cta-holo inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] text-foreground"
             >
               Book a call <ArrowRight className="h-4 w-4" />
             </a>
