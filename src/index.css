@@ -122,7 +122,7 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    padding: 2px;
+    padding: 5px;
     background: var(--holo-gradient);
     background-size: cover;
     background-position: center;
