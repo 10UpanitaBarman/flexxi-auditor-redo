@@ -173,7 +173,7 @@ const Learn = () => (
           </motion.h2>
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.5 }} className="mt-12 flex justify-center">
-            <Link to="/" className="cta-holo inline-flex items-center gap-2 rounded-full px-12 py-4 text-base font-semibold tracking-wide text-foreground">
+            <Link to="/" className="cta-holo inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
               Run an audit <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
