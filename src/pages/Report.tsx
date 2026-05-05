@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import type { AuditResult, CrawlerStatus, Severity } from "@/types/audit";
 import flexxiLogo from "@/assets/flexxi-logo.png";
 
