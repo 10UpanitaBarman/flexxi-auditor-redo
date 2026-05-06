@@ -86,20 +86,22 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
               e.preventDefault();
               if (url) onSubmit?.(url);
             }}
-            className="input-holo mx-auto mt-10 flex max-w-xl items-center gap-0 rounded-full border border-foreground bg-card pl-1.5 pr-1.5 py-1.5 transition-all"
+            className="mx-auto mt-10 flex max-w-xl flex-col items-center gap-5"
           >
-            <span className="pl-4 text-base text-muted-foreground">https://</span>
-            <input
-              type="text"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              placeholder="yoursite.com"
-              className="flex-1 bg-transparent px-2 py-3 text-base text-foreground outline-none placeholder:text-muted-foreground/50"
-            />
+            <div className="input-holo flex w-full items-center rounded-full border border-foreground bg-card px-4 py-3 transition-all">
+              <span className="text-base text-muted-foreground">https://</span>
+              <input
+                type="text"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                placeholder="yoursite.com"
+                className="flex-1 bg-transparent px-2 text-base text-foreground outline-none placeholder:text-muted-foreground/50"
+              />
+            </div>
             <button
               type="submit"
-              style={{ padding: "0.75rem 1.5rem", background: "hsl(0 0% 100%)", color: "hsl(0 0% 0%)", border: "none" }}
-              className="inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              style={{ padding: "1rem 2rem" }}
+              className="cta-holo inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] text-foreground"
             >
               Run audit <ArrowRight className="h-4 w-4" />
             </button>
