@@ -505,7 +505,7 @@ const Report = ({ data, onReset }: ReportProps) => {
               target="_blank"
               rel="noopener noreferrer"
               style={{ padding: "0.875rem 2.5rem" }}
-              className="cta-holo inline-flex items-center gap-2 rounded-full text-sm font-semibold tracking-[0.05em] text-foreground"
+              className="cta-holo inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] text-foreground"
             >
               Book A Call <ArrowRight className="h-4 w-4" />
             </a>
