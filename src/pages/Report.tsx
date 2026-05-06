@@ -504,8 +504,8 @@ const Report = ({ data, onReset }: ReportProps) => {
               href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ padding: "2rem 7rem" }}
-              className="cta-holo inline-flex items-center gap-2 rounded-full text-base font-semibold tracking-[0.05em] text-foreground md:text-lg"
+              style={{ padding: "0.875rem 2.5rem" }}
+              className="cta-holo inline-flex items-center gap-2 rounded-full text-sm font-semibold tracking-[0.05em] text-foreground"
             >
               Book A Call <ArrowRight className="h-4 w-4" />
             </a>
