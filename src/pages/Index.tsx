@@ -77,12 +77,16 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
             Fast, secure, free!
           </motion.p>
 
-          {/* Input */}
-          <motion.div
+          {/* Form */}
+          <motion.form
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6 }}
-            className="input-holo mx-auto mt-10 flex max-w-xl items-center gap-0 rounded-full border border-foreground bg-card px-1.5 transition-all"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (url) onSubmit?.(url);
+            }}
+            className="input-holo mx-auto mt-10 flex max-w-xl items-center gap-0 rounded-full border border-foreground bg-card pl-1.5 pr-1.5 py-1.5 transition-all"
           >
             <span className="pl-4 text-base text-muted-foreground">https://</span>
             <input
@@ -90,24 +94,16 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder="yoursite.com"
-              className="flex-1 bg-transparent px-2 py-3.5 text-base text-foreground outline-none placeholder:text-muted-foreground/50"
+              className="flex-1 bg-transparent px-2 py-3 text-base text-foreground outline-none placeholder:text-muted-foreground/50"
             />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.42, duration: 0.6 }}
-            className="mt-6 flex justify-center"
-          >
             <button
-              onClick={() => url && onSubmit?.(url)}
-              style={{ padding: "0.875rem 2.5rem", background: "hsl(0 0% 100%)", color: "hsl(0 0% 0%)", border: "none" }}
-              className="cta-holo inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              type="submit"
+              style={{ padding: "0.75rem 1.5rem", background: "hsl(0 0% 100%)", color: "hsl(0 0% 0%)", border: "none" }}
+              className="inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] transition-transform hover:scale-[1.02] active:scale-[0.98]"
             >
               Run audit <ArrowRight className="h-4 w-4" />
             </button>
-          </motion.div>
+          </motion.form>
 
           <motion.p
             initial={{ opacity: 0 }}
