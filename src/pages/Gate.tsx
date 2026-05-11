@@ -2,38 +2,22 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import flexxiLogo from "@/assets/flexxi-logo.png";
 
-const CLAY_WEBHOOK_URL =
-  "https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-b2de7358-1b74-46cd-8f0d-885e3543927b";
-
-async function sendToClayWithRetry(payload: Record<string, unknown>, maxAttempts = 3) {
-  let lastError: unknown = null;
-  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 8000);
-      const res = await fetch(CLAY_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        signal: controller.signal,
-      });
-      clearTimeout(timeout);
-      if (res.ok) return { ok: true as const, status: res.status };
-      lastError = new Error(`HTTP ${res.status}`);
-      // Don't retry client errors (except 408/429)
-      if (res.status >= 400 && res.status < 500 && res.status !== 408 && res.status !== 429) {
-        return { ok: false as const, status: res.status, error: lastError };
-      }
-    } catch (err) {
-      lastError = err;
+async function sendLeadToClay(payload: Record<string, unknown>) {
+  try {
+    const { data, error } = await supabase.functions.invoke("clay-lead", {
+      body: payload,
+    });
+    if (error) return { ok: false as const, error };
+    if (data && typeof data === "object" && "ok" in data && (data as { ok: boolean }).ok) {
+      return { ok: true as const };
     }
-    if (attempt < maxAttempts) {
-      await new Promise((r) => setTimeout(r, 500 * 2 ** (attempt - 1)));
-    }
+    return { ok: false as const, error: data };
+  } catch (err) {
+    return { ok: false as const, error: err };
   }
-  return { ok: false as const, status: 0, error: lastError };
 }
 
 export interface LeadInfo {
@@ -77,7 +61,7 @@ const Gate = ({ domain, onContinue, onBack }: GateProps) => {
     if (!isValid || submitting) return;
 
     setSubmitting(true);
-    const result = await sendToClayWithRetry({
+    const result = await sendLeadToClay({
       ...info,
       domain,
       submitted_at: new Date().toISOString(),
@@ -86,7 +70,7 @@ const Gate = ({ domain, onContinue, onBack }: GateProps) => {
     setSubmitting(false);
 
     if (!result.ok) {
-      console.error("Clay webhook failed:", result.status, result.error);
+      console.error("Clay webhook failed:", result.error);
       toast.error("We couldn't save your details", {
         description: "Something went wrong on our end. Please try again in a moment.",
       });
