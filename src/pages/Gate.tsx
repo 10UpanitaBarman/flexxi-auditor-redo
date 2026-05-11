@@ -40,6 +40,24 @@ const Gate = ({ domain, onContinue, onBack }: GateProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValid) return;
+
+    // Fire-and-forget send to Clay webhook
+    try {
+      fetch("https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-b2de7358-1b74-46cd-8f0d-885e3543927b", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...info,
+          domain,
+          submitted_at: new Date().toISOString(),
+          source: "aeo-auditor",
+        }),
+      }).catch((err) => console.error("Clay webhook failed:", err));
+    } catch (err) {
+      console.error("Clay webhook error:", err);
+    }
+
     onContinue(info);
   };
 
