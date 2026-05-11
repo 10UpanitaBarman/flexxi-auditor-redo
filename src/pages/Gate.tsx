@@ -142,11 +142,11 @@ const Gate = ({ domain, onContinue, onBack }: GateProps) => {
           <div className="flex justify-center pt-2">
             <button
               type="submit"
-              disabled={!isValid}
+              disabled={!isValid || submitting}
               style={{ padding: "0.875rem 2.5rem" }}
               className="cta-holo inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] text-foreground transition-opacity disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Continue <ArrowRight className="h-4 w-4" />
+              {submitting ? "Saving…" : "Continue"} <ArrowRight className="h-4 w-4" />
             </button>
           </div>
           <p className="text-center text-xs text-muted-foreground">
