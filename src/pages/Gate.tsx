@@ -1,7 +1,40 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { toast } from "sonner";
 import flexxiLogo from "@/assets/flexxi-logo.png";
+
+const CLAY_WEBHOOK_URL =
+  "https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-b2de7358-1b74-46cd-8f0d-885e3543927b";
+
+async function sendToClayWithRetry(payload: Record<string, unknown>, maxAttempts = 3) {
+  let lastError: unknown = null;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
+      const res = await fetch(CLAY_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+      if (res.ok) return { ok: true as const, status: res.status };
+      lastError = new Error(`HTTP ${res.status}`);
+      // Don't retry client errors (except 408/429)
+      if (res.status >= 400 && res.status < 500 && res.status !== 408 && res.status !== 429) {
+        return { ok: false as const, status: res.status, error: lastError };
+      }
+    } catch (err) {
+      lastError = err;
+    }
+    if (attempt < maxAttempts) {
+      await new Promise((r) => setTimeout(r, 500 * 2 ** (attempt - 1)));
+    }
+  }
+  return { ok: false as const, status: 0, error: lastError };
+}
 
 export interface LeadInfo {
   fullName: string;
@@ -37,25 +70,27 @@ const Gate = ({ domain, onContinue, onBack }: GateProps) => {
     info.company.trim().length > 0 &&
     info.jobTitle.trim().length > 0;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!isValid) return;
+  const [submitting, setSubmitting] = useState(false);
 
-    // Fire-and-forget send to Clay webhook
-    try {
-      fetch("https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-b2de7358-1b74-46cd-8f0d-885e3543927b", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...info,
-          domain,
-          submitted_at: new Date().toISOString(),
-          source: "aeo-auditor",
-        }),
-      }).catch((err) => console.error("Clay webhook failed:", err));
-    } catch (err) {
-      console.error("Clay webhook error:", err);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isValid || submitting) return;
+
+    setSubmitting(true);
+    const result = await sendToClayWithRetry({
+      ...info,
+      domain,
+      submitted_at: new Date().toISOString(),
+      source: "aeo-auditor",
+    });
+    setSubmitting(false);
+
+    if (!result.ok) {
+      console.error("Clay webhook failed:", result.status, result.error);
+      toast.error("We couldn't save your details", {
+        description: "Something went wrong on our end. Please try again in a moment.",
+      });
+      return;
     }
 
     onContinue(info);
@@ -107,11 +142,11 @@ const Gate = ({ domain, onContinue, onBack }: GateProps) => {
           <div className="flex justify-center pt-2">
             <button
               type="submit"
-              disabled={!isValid}
+              disabled={!isValid || submitting}
               style={{ padding: "0.875rem 2.5rem" }}
               className="cta-holo inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] text-foreground transition-opacity disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Continue <ArrowRight className="h-4 w-4" />
+              {submitting ? "Saving…" : "Continue"} <ArrowRight className="h-4 w-4" />
             </button>
           </div>
           <p className="text-center text-xs text-muted-foreground">
