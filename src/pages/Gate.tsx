@@ -1,7 +1,40 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { toast } from "sonner";
 import flexxiLogo from "@/assets/flexxi-logo.png";
+
+const CLAY_WEBHOOK_URL =
+  "https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-b2de7358-1b74-46cd-8f0d-885e3543927b";
+
+async function sendToClayWithRetry(payload: Record<string, unknown>, maxAttempts = 3) {
+  let lastError: unknown = null;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
+      const res = await fetch(CLAY_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+      if (res.ok) return { ok: true as const, status: res.status };
+      lastError = new Error(`HTTP ${res.status}`);
+      // Don't retry client errors (except 408/429)
+      if (res.status >= 400 && res.status < 500 && res.status !== 408 && res.status !== 429) {
+        return { ok: false as const, status: res.status, error: lastError };
+      }
+    } catch (err) {
+      lastError = err;
+    }
+    if (attempt < maxAttempts) {
+      await new Promise((r) => setTimeout(r, 500 * 2 ** (attempt - 1)));
+    }
+  }
+  return { ok: false as const, status: 0, error: lastError };
+}
 
 export interface LeadInfo {
   fullName: string;
