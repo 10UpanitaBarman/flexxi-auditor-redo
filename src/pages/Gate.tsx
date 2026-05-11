@@ -61,7 +61,7 @@ const Gate = ({ domain, onContinue, onBack }: GateProps) => {
     if (!isValid || submitting) return;
 
     setSubmitting(true);
-    const result = await sendToClayWithRetry({
+    const result = await sendLeadToClay({
       ...info,
       domain,
       submitted_at: new Date().toISOString(),
@@ -70,7 +70,7 @@ const Gate = ({ domain, onContinue, onBack }: GateProps) => {
     setSubmitting(false);
 
     if (!result.ok) {
-      console.error("Clay webhook failed:", result.status, result.error);
+      console.error("Clay webhook failed:", result.error);
       toast.error("We couldn't save your details", {
         description: "Something went wrong on our end. Please try again in a moment.",
       });
