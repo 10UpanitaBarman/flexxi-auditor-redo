@@ -26,7 +26,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
               href="https://www.flexxi.studio/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+              className="hidden text-sm font-medium text-foreground/80 transition-colors hover:text-foreground sm:inline-flex"
             >
               Studio
             </a>
