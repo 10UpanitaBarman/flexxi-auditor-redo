@@ -17,11 +17,11 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
     <div className="min-h-screen bg-background">
       {/* Nav */}
       <nav className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
           <a href="https://www.flexxi.studio/who-we-are" target="_blank" rel="noopener noreferrer" aria-label="Flexxi">
-            <img src={flexxiLogo} alt="Flexxi" className="h-8 w-auto" />
+            <img src={flexxiLogo} alt="Flexxi" className="h-7 w-auto md:h-8" />
           </a>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 md:gap-6">
             <a
               href="https://www.flexxi.studio/"
               target="_blank"
@@ -34,8 +34,7 @@ const Index = ({ onSubmit }: IndexProps = {}) => {
               href="https://meetings.hubspot.com/allie-vogel?uuid=8b27d2ba-0aac-4ab5-a591-203dd924bf87"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ padding: "1rem 2rem" }}
-              className="cta-holo inline-flex items-center gap-2 rounded-full text-xs font-semibold tracking-[0.05em] text-foreground"
+              className="cta-holo inline-flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2.5 text-xs font-semibold tracking-[0.05em] text-foreground md:px-8 md:py-4"
             >
               Book A Call <ArrowRight className="h-4 w-4" />
             </a>
